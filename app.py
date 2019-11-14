@@ -56,7 +56,7 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.Img(src=app.get_asset_url('/data-analytics.png')),
+                        html.Img(src='/assets/data-analytics.png'),
                         html.H2("Tráfico Aéreo"),
                         html.P(
                             """\
@@ -71,7 +71,7 @@ body = dbc.Container(
                         dbc.Input(placeholder="Filter 02", type="text"),
                         dbc.Input(placeholder="Filter 03", type="text"),
                         dbc.Label("Integrated by:"),
-                        html.Img(src=app.get_asset_url('/integrated-dicisfot.png')),
+                        html.Img(src=app.get_asset_url('integrated-dicisfot.png')),
                     ],
                     md=3,
                 ),
@@ -110,4 +110,4 @@ body = dbc.Container(
 app.layout = html.Div([body])
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(port=5000)
