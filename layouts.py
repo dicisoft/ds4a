@@ -55,7 +55,12 @@ fig.update_layout(
         ),
     )
 
-body = html.Div(
+url_bar_and_content_div = html.Div([
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')
+])
+
+dashboard = html.Div(
     [        
         dbc.Row(
             [
@@ -133,4 +138,20 @@ body = html.Div(
         )
     ],
     className="mt-4",
+)
+
+login_layout = html.Div([
+    dbc.Row([
+        dbc.Col([
+            dcc.Input(id='email',type='email', placeholder='Email', value=""),
+            html.Br(),
+            dcc.Input(id='password',type='password', placeholder='password', value=""),
+            html.Br(),
+            dcc.Link('Login', href='/dashboard',id='loginButton'),
+            html.Br(),
+            html.Div(id='container-button-basic', children='Enter a value and press submit')
+        ])
+    ])   
+],
+className="mt-4"
 )

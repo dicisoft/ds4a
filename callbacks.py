@@ -1,5 +1,6 @@
+import sys
 import pandas as pd
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 from app import app
 
@@ -21,3 +22,10 @@ def update_table(page_current,page_size):
     return df_table.iloc[
         page_current*page_size:(page_current+ 1)*page_size
     ].to_dict('records')
+
+@app.callback(    
+    Output('container-button-basic', 'children'),
+    [Input('loginButton','id')],
+    [State('email', 'value'),State('password', 'value')])
+def login(n_clicks_timestamp, email, password):
+    return 'User {} and password {}'.format(email, password)
