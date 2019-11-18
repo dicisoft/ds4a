@@ -61,7 +61,7 @@ dashboard = html.Div(
             [
                 dbc.Col(
                     [
-                        html.Img(src='../assets/plain-icon.png'),
+                        html.Img(src='../static/images/plain-icon.png'),
                         html.H1("Horizontal & Vertical"),
                         html.Strong("visibility"),
                         html.Br(),
@@ -89,10 +89,10 @@ dashboard = html.Div(
                         ]),
                         dbc.Row([
                             html.Br(),
-                            html.Img(src='../assets/logo-dici.png'),
-                            html.Img(src='../assets/logo-mintic.png'),
-                            html.Img(src='../assets/logo-c-o.png'),
-                            html.Img(src='../assets/logo-softbank.png'),
+                            html.Img(src='../static/images/logo-dici.png'),
+                            html.Img(src='../static/images/logo-mintic.png'),
+                            html.Img(src='../static/images/logo-c-o.png'),
+                            html.Img(src='../static/images/logo-softbank.png')
 
                         ]),
                    
@@ -104,13 +104,13 @@ dashboard = html.Div(
                     [
                         dbc.Row([
                             dbc.Col([
-                                 html.Img(src='../assets/plain-icon.png'),
+                                 html.Img(src='../static/images/plain-icon.png'),
                                 dbc.Label("Map"),
                                 dcc.Graph(id='graph', figure=fig)
                             ],     
                             md=6),
                             dbc.Col([
-                                html.Img(src='../assets/plain-icon.png'),
+                                html.Img(src='../static/images/plain-icon.png'),
                                 dbc.Label("Grid"),
                                 dt.DataTable(
                                     id='datatable-paging',
@@ -127,7 +127,7 @@ dashboard = html.Div(
                         ]),
                         dbc.Row([
                             dbc.Col([
-                                  html.Img(src='../assets/plain-icon-horizontal.png'),
+                                  html.Img(src='../static/images/plain-icon-horizontal.png'),
                                 html.Label("Vertical visibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
@@ -136,7 +136,7 @@ dashboard = html.Div(
 
                             md=6),
                             dbc.Col([
-                                  html.Img(src='../assets/plain-icon-vertical.png'),
+                                  html.Img(src='../static/images/plain-icon-vertical.png'),
                                 html.Label("Horizontalvisibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
