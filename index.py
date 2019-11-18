@@ -1,33 +1,28 @@
+import flask
+from flask import Flask, render_template, request,redirect, url_for
 import dash_core_components as dcc
 import dash_html_components as html
-import flask
-import callbacks
-
 from dash.dependencies import Input, Output
-from app import app
-from layouts import dashboard, login_layout, url_bar_and_content_div
 
+import callbacks
+from app import app, server
+from layouts import dashboard
 
-def serve_layout():
-    if flask.has_request_context():
-        return url_bar_and_content_div   
-    return html.Div([
-        url_bar_and_content_div,
-        login_layout,
-        dashboard        
-    ])
+@server.route('/')
+def index():
+    return render_template('home.html')
 
-app.layout = serve_layout
-
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
-def display_page(pathname):    
-    if pathname == '/dashboard':
-         return dashboard         
-    elif pathname == '/':
-        return login_layout
+@server.route('/result', methods = ['POST', 'GET'])
+def result():
+    #Authentication Logic
+    if request.method == 'POST' and request.form['username'] == 'admin' and request.form['pass'] == '123456' :
+        print('llego del boton marica')
+        print('POST con usuario {} con password {}'.format(request.form['username'],request.form['pass']))
+        return redirect(url_for('/dash/'))
     else:
-        return '404'
+        return 'logged faild, check your credentials...'
+
+app.layout = dashboard
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=5000)

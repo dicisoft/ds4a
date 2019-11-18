@@ -6,7 +6,7 @@ import dash_table as dt
 import pandas as pd
 from app import app
 
-PAGE_SIZE = 5
+PAGE_SIZE = 11
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
 df_table = pd.read_csv(
@@ -32,9 +32,9 @@ fig = go.Figure(data=go.Scattergeo(
             symbol = 'square',
             line = dict(
                 width=1,
-                color='rgba(102, 102, 102)'
+                color='rgba(79, 199, 218)'
             ),
-            colorscale = 'Blues',
+            colorscale = 'purples',
             cmin = 0,
             color = df['cnt'],
             cmax = df['cnt'].max(),
@@ -42,7 +42,6 @@ fig = go.Figure(data=go.Scattergeo(
         )))
 
 fig.update_layout(
-        title = 'Most trafficked US airports<br>(Hover for airport names)',
         geo = dict(
             scope='usa',
             projection_type='albers usa',
@@ -51,23 +50,22 @@ fig.update_layout(
             subunitcolor = "rgb(217, 217, 217)",
             countrycolor = "rgb(217, 217, 217)",
             countrywidth = 0.5,
-            subunitwidth = 0.5
+            subunitwidth = 0.5,
+            
         ),
     )
 
-url_bar_and_content_div = html.Div([
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content')
-])
-
 dashboard = html.Div(
-    [        
+    [
         dbc.Row(
             [
                 dbc.Col(
                     [
-                        html.Img(src=app.get_asset_url('data-analytics.png')),
-                        html.H2("Tráfico Aéreo"),
+                        html.Img(src='../assets/plain-icon.png'),
+                        html.H1("Horizontal & Vertical"),
+                        html.Strong("visibility"),
+                        html.Br(),
+                        html.H2("Air Traffic"),
                         html.P(
                             """\
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -76,33 +74,44 @@ dashboard = html.Div(
                             volutpat, id hendrerit velit iaculis.
                             """
                         ),
-                        dbc.Label("Aeropuerto 01"),
+                        html.H3("Select Airport:"),
+                        html.Div(),
                         dbc.Select(
                             id="select",
                             options=[
                                 {"label": "Airport 1", "value": "1"},
                                 {"label": "Airport 2", "value": "2"},
                                 {"label": "Airport 3", "value": "3"},
-                            ]),                        
+                            ]),
                         dbc.Row([
-                            dbc.Label("Integrated by:"),
+                            html.H6("Integrated by:"),
+                            html.Br(),
                         ]),
                         dbc.Row([
-                            html.Img(src=app.get_asset_url('integrated-dicisfot.png')),
-                        ]),                        
+                            html.Br(),
+                            html.Img(src='../assets/logo-dici.png'),
+                            html.Img(src='../assets/logo-mintic.png'),
+                            html.Img(src='../assets/logo-c-o.png'),
+                            html.Img(src='../assets/logo-softbank.png'),
+
+                        ]),
+                   
                     ],
                     md=3,
+                        style={"background-color": "#FFFFFF", "height": "100vh", "padding": "3%"},
                 ),
                 dbc.Col(
                     [
                         dbc.Row([
                             dbc.Col([
-                                dbc.Label("Mapa"),
-                                dcc.Graph(id='graph', figure=fig)                                
-                            ],
+                                 html.Img(src='../assets/plain-icon.png'),
+                                dbc.Label("Map"),
+                                dcc.Graph(id='graph', figure=fig)
+                            ],     
                             md=6),
                             dbc.Col([
-                                dbc.Label("Tabla"),
+                                html.Img(src='../assets/plain-icon.png'),
+                                dbc.Label("Grid"),
                                 dt.DataTable(
                                     id='datatable-paging',
                                     columns=[
@@ -113,45 +122,35 @@ dashboard = html.Div(
                                     page_action='custom'
                                 )
                             ],
+
                             md=6)
                         ]),
                         dbc.Row([
                             dbc.Col([
-                                html.H2("Graph"),
-                                dcc.Graph(
-                                    figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
-                                ),                                
-                            ],
-                            md=6),
-                            dbc.Col([
-                                html.H2("Graph"),
+                                  html.Img(src='../assets/plain-icon-horizontal.png'),
+                                html.Label("Vertical visibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
                                 ),
                             ],
+
+                            md=6),
+                            dbc.Col([
+                                  html.Img(src='../assets/plain-icon-vertical.png'),
+                                html.Label("Horizontalvisibility Chart"),
+                                dcc.Graph(
+                                    figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
+                                ),
+                            ],
+
                             md=6)
                         ])
                     ],
                     md=9,
+                    style={"background-color": "#F4F4F4", "height": "100%", "padding": "2% 3%"},
                 ),
             ]
         )
     ],
     className="mt-4",
-)
-
-login_layout = html.Div([
-    dbc.Row([
-        dbc.Col([
-            dcc.Input(id='email',type='email', placeholder='Email', value=""),
-            html.Br(),
-            dcc.Input(id='password',type='password', placeholder='password', value=""),
-            html.Br(),
-            dcc.Link('Login', href='/dashboard',id='loginButton'),
-            html.Br(),
-            html.Div(id='container-button-basic', children='Enter a value and press submit')
-        ])
-    ])   
-],
-className="mt-4"
 )
