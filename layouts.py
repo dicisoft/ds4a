@@ -18,42 +18,7 @@ df_table = pd.read_csv(
 df['text'] = df['airport'] + '' + df['city'] + ', ' + df['state'] + '' + 'Arrivals: ' + df['cnt'].astype(str)
 df_table['index'] = range(1, len(df_table) + 1)
 
-fig = go.Figure(data=go.Scattergeo(
-        locationmode = 'USA-states',
-        lon = df['long'],
-        lat = df['lat'],
-        text = df['text'],
-        mode = 'markers',
-        marker = dict(
-            size = 8,
-            opacity = 0.8,
-            reversescale = True,
-            autocolorscale = False,
-            symbol = 'square',
-            line = dict(
-                width=1,
-                color='rgba(79, 199, 218)'
-            ),
-            colorscale = 'purples',
-            cmin = 0,
-            color = df['cnt'],
-            cmax = df['cnt'].max(),
-            colorbar_title="Incoming flights<br>February 2011"
-        )))
 
-fig.update_layout(
-        geo = dict(
-            scope='usa',
-            projection_type='albers usa',
-            showland = True,
-            landcolor = "rgb(250, 250, 250)",
-            subunitcolor = "rgb(217, 217, 217)",
-            countrycolor = "rgb(217, 217, 217)",
-            countrywidth = 0.5,
-            subunitwidth = 0.5,
-            
-        ),
-    )
 
 dashboard = html.Div(
     [
@@ -77,12 +42,21 @@ dashboard = html.Div(
                         html.H3("Select Airport:"),
                         html.Div(),
                         dbc.Select(
-                            id="select",
+                            id="airport-select",
                             options=[
-                                {"label": "Airport 1", "value": "1"},
-                                {"label": "Airport 2", "value": "2"},
-                                {"label": "Airport 3", "value": "3"},
-                            ]),
+                                {"label": "SKAR", "value": "SKAR"},
+                                {"label": "SKQL", "value": "SKQL"},
+                                {"label": "SKBO", "value": "SKBO"},
+                                {"label": "SKBG", "value": "SKBG"},
+                                {"label": "SKCL", "value": "SKCL"},
+                                {"label": "SKCC", "value": "SKCC"},
+                                {"label": "SKCG", "value": "SKCG"},
+                                {"label": "SKPE", "value": "SKPE"},
+                                {"label": "SKSP", "value": "SKSP"},
+                                {"label": "SKSM", "value": "SKSM"},
+                                {"label": "SKMR", "value": "SKMR"},
+                            ],
+                            value='SKAR'),
                         dbc.Row([
                             html.H6("Integrated by:"),
                             html.Br(),
@@ -106,7 +80,7 @@ dashboard = html.Div(
                             dbc.Col([
                                  html.Img(src='../static/images/plain-icon.png'),
                                 dbc.Label("Map"),
-                                dcc.Graph(id='graph', figure=fig)
+                                html.Div(id='map-div')                                
                             ],     
                             md=6),
                             dbc.Col([
