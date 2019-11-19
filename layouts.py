@@ -44,17 +44,17 @@ dashboard = html.Div(
                         dbc.Select(
                             id="airport-select",
                             options=[
-                                {"label": "SKAR", "value": "SKAR"},
-                                {"label": "SKQL", "value": "SKQL"},
-                                {"label": "SKBO", "value": "SKBO"},
-                                {"label": "SKBG", "value": "SKBG"},
-                                {"label": "SKCL", "value": "SKCL"},
-                                {"label": "SKCC", "value": "SKCC"},
-                                {"label": "SKCG", "value": "SKCG"},
-                                {"label": "SKPE", "value": "SKPE"},
-                                {"label": "SKSP", "value": "SKSP"},
-                                {"label": "SKSM", "value": "SKSM"},
-                                {"label": "SKMR", "value": "SKMR"},
+                                {"label": "Armenia", "value": "SKAR"},#Armenia
+                                {"label": "Mariquita", "value": "SKQU"},#Mariquita
+                                {"label": "Bogota", "value": "SKBO"},#Bogota
+                                {"label": "Bucaramanga", "value": "SKBG"},#Bucaramanga
+                                {"label": "Cali", "value": "SKCL"},#Cali
+                                {"label": "Cucuta", "value": "SKCC"},#Cucuta
+                                {"label": "Cartagena", "value": "SKCG"},#cartagena
+                                {"label": "Pereira", "value": "SKPE"},#pereira
+                                {"label": "San Andres", "value": "SKSP"},#San Andres
+                                {"label": "Santa Marta", "value": "SKSM"},#Santa Marta
+                                {"label": "Monteria", "value": "SKMR"},#Monteria
                             ],
                             value='SKAR'),
                         dbc.Row([
@@ -127,4 +127,6 @@ dashboard = html.Div(
         )
     ],
     className="mt-4",
-)
+    )
+
+    # 4.4528825,-75.7684869;

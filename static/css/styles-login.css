@@ -69,9 +69,6 @@ border: #F4F4F4 solid 4px;
   border: #F4F4F4 solid 4px;
 }
 
-
-
-
 a:link, a:visited {
   background-color:#6B69A6;
   width: 90%; 
@@ -85,4 +82,12 @@ a:link, a:visited {
   a:hover, a:active {
     background-color: green;
     color: white;
+  }
+
+  .mapboxgl-ctrl-logo{
+    display: none!important;
+  }
+
+  .mapboxgl-ctrl-attrib-inner{
+    display: none!important;
   }
