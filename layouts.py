@@ -128,5 +128,3 @@ dashboard = html.Div(
     ],
     className="mt-4",
     )
-
-    # 4.4528825,-75.7684869;
