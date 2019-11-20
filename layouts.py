@@ -121,7 +121,7 @@ dashboard = html.Div(
                         ])
                     ],
                     md=9,
-                    style={"background-color": "#F4F4F4", "height": "100%", "padding": "2% 3%"},
+                    style={"background-color": "#F4F4F4", "height": "100%", "padding": "0.5% 0.5%"},
                 ),
             ]
         )
