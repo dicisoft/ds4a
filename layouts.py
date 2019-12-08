@@ -60,7 +60,7 @@ dashboard = html.Div(
                             value='SKAR'),
                         dbc.Row([
                             html.Br(),
-                                                        html.Br(),
+                            html.Br(),
                             html.H6("Integrated by:"),
                             html.Br(),
                        

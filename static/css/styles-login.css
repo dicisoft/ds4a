@@ -364,8 +364,11 @@ label:before{
   font-size: 20px;
 
 }
-input[type=checkbox]:checked + label:before{
-  background-color:  red;
+.start input[type=checkbox]:checked + label:before{
+  background-color:  #7CC6D5;
+}
+.stop input[type=checkbox]:checked + label:before{
+  background-color:  #EF1155;
 }
  /* width */
  ::-webkit-scrollbar {
