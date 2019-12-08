@@ -39,6 +39,7 @@ dashboard = html.Div(
                             volutpat, id hendrerit velit iaculis.
                             """
                         ),
+                         html.Button('Documentation', className='button-dash'),
                         html.H3("Select Airport:"),
                         html.Div(),
                         dbc.Select(
@@ -58,33 +59,38 @@ dashboard = html.Div(
                             ],
                             value='SKAR'),
                         dbc.Row([
+                            html.Br(),
                             html.H6("Integrated by:"),
                             html.Br(),
+                       
                         ]),
                         dbc.Row([
                             html.Br(),
                             html.Img(src='../static/images/logo-dici.png'),
                             html.Img(src='../static/images/logo-mintic.png'),
                             html.Img(src='../static/images/logo-c-o.png'),
-                            html.Img(src='../static/images/logo-softbank.png')
+                            html.Br(),
 
+
+                        ]),
+                   dbc.Row([
+                           html.Img(src='../static/images/logo-softbank.png', className='images_logo')
                         ]),
                    
                     ],
+                    
                     md=3,
                         style={"background-color": "#FFFFFF", "height": "100vh", "padding": "3%"},
                 ),
                 dbc.Col(
                     [
-                        dbc.Row([
+                       
                             dbc.Col([
-                                 html.Img(src='../static/images/plain-icon.png'),
                                 dbc.Label("Map"),
                                 html.Div(id='map-div')                                
                             ],     
-                            md=6),
+                            md=12),
                             dbc.Col([
-                                html.Img(src='../static/images/plain-icon.png'),
                                 dbc.Label("Grid"),
                                 dt.DataTable(
                                     id='datatable-paging',
@@ -97,34 +103,76 @@ dashboard = html.Div(
                                 )
                             ],
 
-                            md=6)
-                        ]),
-                        dbc.Row([
+                            md=12)
+                      
+                      
+                    ],
+                    md=5,
+                    style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll"},
+                ),
+                 dbc.Col(
+                    [
                             dbc.Col([
-                                  html.Img(src='../static/images/plain-icon-horizontal.png'),
+                                html.Label("Visibility Chart"),
+                                html.Br(),
+                                html.Button('Proyection', className='button-dash'),
+                                html.Br(),
+                                dcc.Checklist(
+    options=[
+        {'label': '+ 01:00', 'value': 'v1'},
+        {'label': '+ 02:00', 'value': 'v2'},
+        {'label': '+ 03:00', 'value': 'v3'},
+        {'label': '+ 04:00', 'value': 'v4'},
+        {'label': '+ 05:00', 'value': 'v5'},
+        {'label': '+ 06:00', 'value': 'v6'}
+    ],
+    value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
+    labelStyle={'display': 'inline-block',}
+),
+                             dcc.Checklist(
+    options=[
+        {'label': '+ 01:00', 'value': 'h1'},
+        {'label': '+ 02:00', 'value': 'h2'},
+        {'label': '+ 03:00', 'value': 'h3'},
+        {'label': '+ 04:00', 'value': 'h4'},
+        {'label': '+ 05:00', 'value': 'h5'},
+        {'label': '+ 06:00', 'value': 'h6'}
+    ],
+    value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+    labelStyle={'display': 'inline-block'}
+)  
+                                
+                            ],
+                                    
+                                    
+
+                            md=12), 
+                            
+                      dbc.Col([
                                 html.Label("Vertical visibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
                                 ),
                             ],
 
-                            md=6),
+                            md=12),
+              
+                           
                             dbc.Col([
-                                  html.Img(src='../static/images/plain-icon-vertical.png'),
                                 html.Label("Horizontalvisibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
                                 ),
                             ],
 
-                            md=6)
-                        ])
-                    ],
-                    md=9,
-                    style={"background-color": "#F4F4F4", "height": "100%", "padding": "0.5% 0.5%"},
-                ),
-            ]
-        )
+                            md=12),
+                    ],       
+                    md=4,
+                    style={"background-color": "#F4F4F4", "height": "100vh", "overflow": "scroll" },
+                ),        
+            ]  
+        )   
     ],
     className="mt-4",
+      style={"background-color": "#F4F4F4", "height": "100%", "padding": "0.5% 0.5%",},
     )

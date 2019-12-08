@@ -14,9 +14,9 @@ strong {
   margin: 0;
 }
 h1 {
-  color: #555555; 
-  font-size: 40px; 
-  font-weight:400; 
+  color: #777777; 
+  font-size: 35px; 
+  font-weight:200; 
   letter-spacing: -1px;
   padding: 0%;
   margin: 0;
@@ -29,9 +29,9 @@ h2 {
   padding: 9% 0 0 0
 }
 h3 {
-  color: #555555; 
-  font-size: 22px; 
-  font-weight: 400; 
+  color: #777777; 
+  font-size: 20px; 
+  font-weight: 600; 
   letter-spacing: -1px; 
   padding: 5% 0 0
 }
@@ -50,7 +50,7 @@ label {
   font-size: 14px; 
   font-weight: 500; 
   margin-bottom: 0 !important;
-  padding: 2%;
+  padding: 1%;
 }
 label > strong {
   color: #4CC7D6;
@@ -59,14 +59,51 @@ label > strong {
 section  {
   margin: 0;
 }
+.button-dash {
+  background: var(--violet-color);
+  border: 0;
+  border-radius: 4px;
+  color: #FFF !important;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 240px;
+  font-size: 12px;
+  max-height: 42px;
+  line-height: 35px;
+  width: 100%;
+  margin:  5px 0;
+  max-width: 290px;
+}
 
-.col-md-6 {
+.button-dash :hover {
+  background: var(--blue-color)!important;
+}
+
+.images_logo{
+  width: 260px;
+  text-align: center;
+  align-content: center;
+}
+
+.col-md-5 {
 background: #ffffff;
 border: #F4F4F4 solid 4px;
+border-bottom: #F4F4F4 solid 7px;
+padding-right: 0 !important;
+padding-left: 0 !important;
+}
+.col-md-4{
+  background: #ffffff;
+  border-bottom: #F4F4F4 solid 7px;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 .col-md-12{
   background: #ffffff;
   border: #F4F4F4 solid 4px;
+ 
+ 
 }
 
 a:link, a:visited {
@@ -92,48 +129,6 @@ a:link, a:visited {
     display: none!important;
   }
 
-
-
-
-  p {
-    font-size: 12px;
-    color: #FFF;
-    font-weight: 100;
-    }  
-
-    a {
-    font-size: 12px;
-    color: var(--violet-color);
-    font-weight: 100;
-    } 
-
-    h1 {
-    font-size: 32px;
-    color: #FFF;
-    font-weight: lighter;
-    margin: 5% 0 0
-    }  
-
-    h3 {
-    font-size: 15px;
-    color: #FFF;
-    font-weight: 100;
-    margin: 0 0 3%
-    }  
-
-    h4 {
-    font-size: 15px;
-    color: var(--dark-color);
-    margin: 2% 0 5%
-    }  
-
-    h5 {
-    font-size: 13px;
-    color: var(--grey-light-color);
-    font-weight: 100;
-    margin: 0 0 5%;
-    width: 80%
-    }  
 
     label {
     font-size: 12px;
