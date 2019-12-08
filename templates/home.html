@@ -27,53 +27,71 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body class="login">
 	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../static/images/bg-01.jpg');">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="result" method="POST">
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
+	
+	<section class="form-section">
+        <img src="../static/images/plain-icon.png" alt="Login Icon" height="90" width="90">
+		<h2>Air  <strong>Traffic System</strong> </h2>
+		<h5>Horizontal & Vertical visibility</h5>
 
-					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
+	<form class="login100-form validate-form" action="result" method="POST">
+			<h5  style="width: 100% !important">To continue, please enter your Username and Password. </h5>
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-
-					<div class="text-center p-t-90">
-						<a class="txt1" href="#">
-							Forgot Password?
-						</a>
-					</div>
-				</form>
-			</div>
+		<div class="" data-validate = "Enter username" style="text-align: left; margin: 10px 0">
+			<input class="textbox-rectangle" type="text" name="username" placeholder="Username">
+			<span class="" data-placeholder="&#xf207;"></span>
 		</div>
+
+		<div class="wrap-input100 validate-input" data-validate="Enter password" style="text-align: left; margin: 10px 0">
+			<input class="textbox-rectangle"  type="password" name="pass" placeholder="Password">
+			<span  data-placeholder="&#xf191;"></span>
+		</div>
+
+		<div class="contact100-form-checkbox" >
+			<input class="textbox-rectangle" id="ckb1" type="checkbox" name="remember-me">
+			<label  for="ckb1">
+				Remember me
+			</label>
+		</div>
+
+		<div class="container-login100-form-btn">
+			<button class="flexbox-widget-btn">
+				Login
+			</button>
+		</div>
+
+		<div class="">
+			<h5 class=" " href="#" style="width: 100% !important;">
+				Forgot Password?
+			</h5>
+ 		</div>
+	</form>
+        <div class="logo-footer">
+			<img src="../static/images/logo-dici.png" alt="Login Icon">
+			<img src="./static/images/logo-mintic.png" alt="Login Icon">
+			<img src="../static/images/logo-c-o.png" alt="Login Icon">
 	</div>
-	
+    </section>
+    <section class="figure-section"  >
+				<!-- particles.js container --> <div id="particles-js">
+<div style="position: absolute;" class="figure-section">
+	<br>
+ <img src="../static/images/plain-icon-horizontal.png" alt="Login Icon" height="70" >
+        <h2>Data <strong> Analytics</strong> </h2>
+        <h3>Random forest regression</h3>
+		<hr>
+        <p style="width:100% !important ;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nisl non tortor fringilla vestibulum at ut metus. Sed euismod diam nec ex congue auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sed enim in ante gravida suscipit. Fusce vitae laoreet lectus.</p>
+		<div class="web-buton">
+            <input type="submit" value="dicisoft.com" class="flexbox-widget-btn-invert" style=" width: 30% !important; min-width: 170px;" >
+		</div>
+		<div class="logo-footer">
+				<img src="../static/images/logo-softbank.png" alt="Login Icon" width="150">
+		</div>
+				</div> <!-- stats - count particles -->  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
+			</div>
+    </section>
+</body>
 
 	<div id="dropDownSelect1"></div>
 	
@@ -96,3 +114,252 @@
 
 </body>
 </html>
+
+<style>
+	p {
+		font-size: 12px;
+		color: #FFF;
+		font-weight: 100;
+		}  
+	
+		a {
+		font-size: 12px;
+		color: var(--violet-color);
+		font-weight: 100;
+		} 
+	
+		h1 {
+		font-size: 32px;
+		color: #FFF;
+		font-weight: lighter;
+		margin: 5% 0 0
+		}  
+	
+		h3 {
+		font-size: 15px;
+		color: #FFF;
+		font-weight: 100;
+		margin: 0 0 3%
+		}  
+	
+		h4 {
+		font-size: 15px;
+		color: var(--dark-color);
+		margin: 2% 0 5%
+		}  
+	
+		h5 {
+		font-size: 13px;
+		color: var(--grey-light-color);
+		font-weight: 100;
+		margin: 0 0 5%;
+		width: 80%
+		}  
+	
+		label {
+		font-size: 12px;
+		color: var(--grey-light-color);
+		font-weight: 100;
+		margin: 2% 0 5%;
+		}  
+	
+		small {
+		font-size: 10px;
+		color: var(--grey-font-color);
+		font-weight: 100;
+		text-align: right;
+		} 
+	
+		hr{
+			color: withe;
+			width: 100%
+		} 
+	
+		form{
+		min-width:30vw;
+		} 
+	
+	:root {
+			--blue-color: #7CC6D5;
+			--blue-disable-color: #677272;
+			--violet-color: #6B69A6;
+			--violet-hover-color: #A1A1D1;
+			--grey-bg-color: #EFEFEF;
+			--grey-font-color: #888;
+			--grey-light-color: #AAA;
+			--grey-medium-color: #C6C6C6;
+			--grey-dark-color: #999999;
+			--grey-controls-color: #CCCC;
+			--dark-color: #333333;
+			--light-color: #FFF;
+		}
+		
+		body {
+			font-family: Helvetica, sans-serif;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+		
+		.login {
+			display: grid;
+			grid-template-areas: "form arrow blocks lines";
+			grid-template-columns: 48% 2% 48% 2%;
+			grid-template-rows: 1fr;
+			min-height: 100vh
+		}
+		
+		.form-section {
+			background-color: var(--light-color);
+			border-top: none;
+			grid-area: form;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			flex-direction: column;
+			padding:  6% 12%
+		}
+		
+		.arrow-section  {
+			background-color: var(--light-color);
+			grid-area: arrow;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+		
+		.figure-section  {
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			color: #FFF;
+			padding:  18% 18% ;
+		}
+	
+		 .lines-section  {
+			background-color: var(--violet-color);
+			display: grid;
+			grid-area: lines
+		}
+		
+		.login-arrow {
+			width: 0;
+			height: 0;
+			border-top: 20px solid transparent;
+			border-bottom: 20px solid transparent;
+			border-right: 20px solid var(--dark-color);
+		}
+	
+		
+		.flexbox-widget-btn {
+			background: var(--violet-color);
+			border: 0;
+			border-radius: 4px;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			min-width: 280px;
+			font-size: 12px;
+			max-height: 42px;
+			line-height: 35px;
+			width: 100%;
+			margin:  5px 0
+	
+		}
+	
+		.flexbox-widget-btn-invert {
+			background: var(--blue-color);
+			border: 0;
+			border-radius: 4px;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			min-width: 170px;
+			font-size: 12px;
+			max-height: 42px;
+			line-height: 35px;
+			width: 30%;
+			margin:  5px 0
+		}
+		
+		.textbox-rectangle {
+			min-width: 280px;
+			border-radius: 4px;
+			color: var(--grey-font-color);
+			cursor: pointer;
+			font-weight: 300;
+			font-size: 12px;
+			max-height: 43px;
+			width: 100%;
+			padding: .375rem .450rem;
+			line-height: 5.5;
+		   background-color: #fff;
+		   background-clip: padding-box;
+		   border: 1px solid #ced4da;
+		   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		   margin:5px 0
+	
+		}
+		.logo-footer 
+				{
+			align-items: flex-end;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: 10vh;
+		}
+		
+		.web-buton{
+			align-items: flex-end;
+			display: flex;
+			justify-content:  flex-end;
+			width: 100%;
+			height: 30vh;
+		}
+	
+		@media (max-width: 640px) {
+			.login {
+				display: grid;
+				grid-template-areas: "form" "arrow" "blocks" "lines";
+				grid-template-columns: 100%;
+				grid-template-rows: 80% 20%;
+				min-height: 100vh
+			}
+			.login > .arrow-section  {
+			align-items: center;
+			justify-content: center;
+		}
+			.login > .lines-section  {
+				background-color: var(--yellow-color);
+				display: grid;
+				display: flex;
+				flex-direction: row;
+				height: 10px;
+			}
+			.login-arrow {
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid var(--dark-color);
+			}
+			.login > aside {
+				background-color: var(--grey-bg-color);
+				grid-area: arrow;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+
+
+
+/* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 50%; height: 100%; background-color: #333333; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+
+		</style>
+	<script>particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":11.987245570712759,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;</script>
