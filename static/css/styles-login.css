@@ -36,10 +36,10 @@ h3 {
   padding: 5% 0 0
 }
 h6 {
-  color: #888888; 
-  font-size: 14px; 
-  font-weight: 400; 
-  padding: 6% 0 0 
+  color: #999999 !important;
+  font-size: 12px; 
+  font-weight: 200; 
+  margin: 2% 0;
 }
 p {
   color: #444444; 
@@ -81,9 +81,11 @@ section  {
 }
 
 .images_logo{
-  width: 260px;
+  width: 320px;
   text-align: center;
   align-content: center;
+  align-items: center;
+  opacity: 0.7;
 }
 
 .col-md-5 {
@@ -102,9 +104,12 @@ padding-left: 0 !important;
 .col-md-12{
   background: #ffffff;
   border: #F4F4F4 solid 4px;
- 
- 
+  align-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+
 
 a:link, a:visited {
   background-color:#6B69A6;
@@ -230,22 +235,6 @@ a:link, a:visited {
         border-right: 20px solid var(--dark-color);
     }
 
-
-    .line-decor-01 {
-        background-color: var(--grey-medium-color);
-    }
-    
-    .line-decor-02 {
-        background-color: var(--grey-light-color);
-    }
-    
-    .line-decor-03 {
-        background-color: var(--grey-dark-color);
-    }
-    
-    .line-decor-04 {
-        background-color: var(--yellow-color);
-    }
     
     .flexbox-widget-btn {
         background: var(--violet-color);
@@ -350,17 +339,50 @@ a:link, a:visited {
             align-items: center;
             justify-content: center;
         }
-        .line-decor-01 {
-            width: 25%;
-        }
-        .line-decor-02 {
-            width: 25%
-        }
-        .line-decor-03 {
-            width: 25%
-        }
-        .line-decor-04 {
-            width: 25%
-        }
+     
     }
     
+input[type=checkbox]{
+  display: none; /*solo se esconde para tener un campo personalisado*/
+}
+
+input[type=checkbox] + label{
+  cursor:pointer;
+  
+}/*esta linea significa esto + el siguiente elemento*/
+
+label:before{
+  content: '✈';
+  background-color:  var(--grey-bg-color);
+  border-radius: 2px;
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  margin-right: 5px;
+  text-align:center;
+  vertical-align:middle;
+  font-size: 20px;
+
+}
+input[type=checkbox]:checked + label:before{
+  background-color:  red;
+}
+ /* width */
+ ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 

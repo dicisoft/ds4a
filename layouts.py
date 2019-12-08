@@ -30,7 +30,7 @@ dashboard = html.Div(
                         html.H1("Horizontal & Vertical"),
                         html.Strong("visibility"),
                         html.Br(),
-                        html.H2("Air Traffic"),
+                        html.H2("Air Traffic:"),
                         html.P(
                             """\
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -60,6 +60,7 @@ dashboard = html.Div(
                             value='SKAR'),
                         dbc.Row([
                             html.Br(),
+                                                        html.Br(),
                             html.H6("Integrated by:"),
                             html.Br(),
                        
@@ -68,13 +69,13 @@ dashboard = html.Div(
                             html.Br(),
                             html.Img(src='../static/images/logo-dici.png'),
                             html.Img(src='../static/images/logo-mintic.png'),
-                            html.Img(src='../static/images/logo-c-o.png'),
+                            html.Img(src='../static/images/logo-c-o.png',),
                             html.Br(),
 
 
                         ]),
                    dbc.Row([
-                           html.Img(src='../static/images/logo-softbank.png', className='images_logo')
+                           html.Img(src='../static/images/softbank-logo.svg', className='images_logo')
                         ]),
                    
                     ],
@@ -86,12 +87,12 @@ dashboard = html.Div(
                     [
                        
                             dbc.Col([
-                                dbc.Label("Map"),
+                                html.H6("Map"),
                                 html.Div(id='map-div')                                
                             ],     
                             md=12),
                             dbc.Col([
-                                dbc.Label("Grid"),
+                                html.H6("Grid"),
                                 dt.DataTable(
                                     id='datatable-paging',
                                     columns=[
@@ -102,10 +103,7 @@ dashboard = html.Div(
                                     page_action='custom'
                                 )
                             ],
-
                             md=12)
-                      
-                      
                     ],
                     md=5,
                     style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll"},
@@ -113,43 +111,42 @@ dashboard = html.Div(
                  dbc.Col(
                     [
                             dbc.Col([
-                                html.Label("Visibility Chart"),
+                                html.H6("Visibility Chart"),
                                 html.Br(),
                                 html.Button('Proyection', className='button-dash'),
                                 html.Br(),
+                                     html.H6("Vertical visibility"),
                                 dcc.Checklist(
     options=[
-        {'label': '+ 01:00', 'value': 'v1'},
-        {'label': '+ 02:00', 'value': 'v2'},
-        {'label': '+ 03:00', 'value': 'v3'},
-        {'label': '+ 04:00', 'value': 'v4'},
-        {'label': '+ 05:00', 'value': 'v5'},
-        {'label': '+ 06:00', 'value': 'v6'}
+        {'label': '+ 01', 'value': 'v1'},
+        {'label': '+ 02', 'value': 'v2'},
+        {'label': '+ 03', 'value': 'v3'},
+        {'label': '+ 04', 'value': 'v4'},
+        {'label': '+ 05', 'value': 'v5'},
+        {'label': '+ 06', 'value': 'v6'}
     ],
     value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
     labelStyle={'display': 'inline-block',}
-),
+),      html.Br(), 
+                                     html.H6("Horizontal Visibility"),
                              dcc.Checklist(
     options=[
-        {'label': '+ 01:00', 'value': 'h1'},
-        {'label': '+ 02:00', 'value': 'h2'},
-        {'label': '+ 03:00', 'value': 'h3'},
-        {'label': '+ 04:00', 'value': 'h4'},
-        {'label': '+ 05:00', 'value': 'h5'},
-        {'label': '+ 06:00', 'value': 'h6'}
+        {'label': '+ 01', 'value': 'h1'},
+        {'label': '+ 02', 'value': 'h2'},
+        {'label': '+ 03', 'value': 'h3'},
+        {'label': '+ 04', 'value': 'h4'},
+        {'label': '+ 05', 'value': 'h5'},
+        {'label': '+ 06', 'value': 'h6'}
     ],
     value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     labelStyle={'display': 'inline-block'}
-)  
-                                
+) ,
+                                html.Br(),         
                             ],
-                                    
-                                    
-
                             md=12), 
                             
                       dbc.Col([
-                                html.Label("Vertical visibility Chart"),
+                                html.H6("Vertical visibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
                                 ),
@@ -159,7 +156,7 @@ dashboard = html.Div(
               
                            
                             dbc.Col([
-                                html.Label("Horizontalvisibility Chart"),
+                                html.H6("Horizontalvisibility Chart"),
                                 dcc.Graph(
                                     figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
                                 ),
