@@ -92,3 +92,280 @@ a:link, a:visited {
     display: none!important;
   }
 
+
+
+
+  p {
+    font-size: 12px;
+    color: #FFF;
+    font-weight: 100;
+    }  
+
+    a {
+    font-size: 12px;
+    color: var(--violet-color);
+    font-weight: 100;
+    } 
+
+    h1 {
+    font-size: 32px;
+    color: #FFF;
+    font-weight: lighter;
+    margin: 5% 0 0
+    }  
+
+    h3 {
+    font-size: 15px;
+    color: #FFF;
+    font-weight: 100;
+    margin: 0 0 3%
+    }  
+
+    h4 {
+    font-size: 15px;
+    color: var(--dark-color);
+    margin: 2% 0 5%
+    }  
+
+    h5 {
+    font-size: 13px;
+    color: var(--grey-light-color);
+    font-weight: 100;
+    margin: 0 0 5%;
+    width: 80%
+    }  
+
+    label {
+    font-size: 12px;
+    color: var(--grey-light-color);
+    font-weight: 100;
+    margin: 2% 0 5%;
+    }  
+
+    small {
+    font-size: 10px;
+    color: var(--grey-font-color);
+    font-weight: 100;
+    text-align: right;
+    } 
+
+    hr{
+        color: withe;
+        width: 100%
+    } 
+
+    form{
+    min-width:30vw;
+    } 
+
+:root {
+        --blue-color: #7CC6D5;
+        --blue-disable-color: #677272;
+        --violet-color: #6B69A6;
+        --violet-hover-color: #A1A1D1;
+        --grey-bg-color: #EFEFEF;
+        --grey-font-color: #888;
+        --grey-light-color: #AAA;
+        --grey-medium-color: #C6C6C6;
+        --grey-dark-color: #999999;
+        --grey-controls-color: #CCCC;
+        --dark-color: #333333;
+        --light-color: #FFF;
+    }
+    
+    body {
+        font-family: Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .login {
+        display: grid;
+        grid-template-areas: "form arrow blocks lines";
+        grid-template-columns: 48% 2% 48% 2%;
+        grid-template-rows: 1fr;
+        min-height: 100vh
+    }
+    
+    .login > .form-section {
+        background-color: var(--light-color);
+        border-top: none;
+        grid-area: form;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        padding:  6% 12%
+    }
+    
+    .login > .arrow-section  {
+        background-color: var(--light-color);
+        grid-area: arrow;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    .login > .figure-section  {
+        background-color: var(--dark-color);
+        display: grid;
+        grid-area: blocks;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: #FFF;
+        padding:  6% 18% 0;
+    }
+
+    .login > .lines-section  {
+        background-color: var(--violet-color);
+        display: grid;
+        grid-area: lines
+    }
+    
+    .login-arrow {
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 20px solid var(--dark-color);
+    }
+
+
+    .line-decor-01 {
+        background-color: var(--grey-medium-color);
+    }
+    
+    .line-decor-02 {
+        background-color: var(--grey-light-color);
+    }
+    
+    .line-decor-03 {
+        background-color: var(--grey-dark-color);
+    }
+    
+    .line-decor-04 {
+        background-color: var(--yellow-color);
+    }
+    
+    .flexbox-widget-btn {
+        background: var(--violet-color);
+        border: 0;
+        border-radius: 4px;
+        color: #FFF;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        min-width: 280px;
+        font-size: 12px;
+        max-height: 42px;
+        line-height: 35px;
+        width: 100%;
+        margin:  5px 0
+
+    }
+
+    .flexbox-widget-btn-invert {
+        background: var(--blue-color);
+        border: 0;
+        border-radius: 4px;
+        color: #FFF;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        min-width: 170px;
+        font-size: 12px;
+        max-height: 42px;
+        line-height: 35px;
+        width: 30%;
+        margin:  5px 0
+
+
+    }
+    
+    .textbox-rectangle {
+        min-width: 280px;
+        border-radius: 4px;
+        color: var(--grey-font-color);
+        cursor: pointer;
+        font-weight: 300;
+        font-size: 12px;
+        max-height: 43px;
+        width: 100%;
+        padding: .375rem .450rem;
+        line-height: 5.5;
+       background-color: #fff;
+       background-clip: padding-box;
+       border: 1px solid #ced4da;
+       transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+       margin:5px 0
+
+    }
+    .logo-footer 
+            {
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 10vh;
+    }
+    
+    .web-buton{
+        align-items: flex-end;
+        display: flex;
+        justify-content:  flex-end;
+        width: 100%;
+        height: 30vh;
+    }
+
+    @media (max-width: 640px) {
+        .login {
+            display: grid;
+            grid-template-areas: "form" "arrow" "blocks" "lines";
+            grid-template-columns: 100%;
+            grid-template-rows: 80% 20%;
+            min-height: 100vh
+        }
+        .login > .arrow-section  {
+        align-items: center;
+        justify-content: center;
+    }
+        .login > .lines-section  {
+            background-color: var(--yellow-color);
+            display: grid;
+            display: flex;
+            flex-direction: row;
+            height: 10px;
+        }
+        .login-arrow {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid var(--dark-color);
+        }
+        .login > aside {
+            background-color: var(--grey-bg-color);
+            grid-area: arrow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .line-decor-01 {
+            width: 25%;
+        }
+        .line-decor-02 {
+            width: 25%
+        }
+        .line-decor-03 {
+            width: 25%
+        }
+        .line-decor-04 {
+            width: 25%
+        }
+    }
+    
