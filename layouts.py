@@ -19,20 +19,16 @@ dashboard = html.Div(
             [
                 dbc.Col(
                     [
-                        html.Img(src='../static/images/plain-icon.png'),
-                        html.H1("Horizontal & Vertical"),
-                        html.Strong("Visibility"),
-                        html.Br(),
-                         html.Br(),
-                        html.H6("Engine and powered by: "),
-                        html.A("Dicisoft.com"),
+                        html.Img(src='../static/images/plain-icon.png', className='inline-header'),
+                        html.H1("Horizontal & Vertical  " , className='inline-header'),
+                        html.Strong("  Visibility", className='inline-header'),
                    dbc.Row([
                         ]),
                    
                     ],
                     
-                    md=2,
-                        style={"background-color": "#FFFFFF", "height": "100vh", "padding": "1%"},
+                 
+                        style={"background-color": "#FFFFFF", "height": "70px", "position": "fixed" , "z-index": "99999" },
                 ),
                 dbc.Col(
                     [
@@ -66,8 +62,8 @@ dashboard = html.Div(
                             ],
                             md=12)
                     ],
-                    md=5,
-                    style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll"},
+                    md=6,
+                    style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll" ,  "top": "70px"},
                 ),
                  dbc.Col(
                     [
@@ -128,8 +124,8 @@ dashboard = html.Div(
                             md=12),
                             
                     ],       
-                    md=5,
-                    style={"background-color": "#F4F4F4", "height": "100vh", "overflow": "scroll" },
+                    md=6,
+                    style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll" ,  "top": "70px"},
                 ),        
             ]  
         )   

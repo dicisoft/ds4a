@@ -7,7 +7,7 @@ body {
 }
 strong {
   color: #555555; 
-  font-size: 29px; 
+  font-size: 26px; 
   font-weight:600; 
   letter-spacing: -1px;
   padding: 0%;
@@ -15,7 +15,7 @@ strong {
 }
 h1 {
   color: #777777; 
-  font-size: 26px; 
+  font-size: 23px; 
   font-weight:200; 
   letter-spacing: -1px;
   padding: 0%;
@@ -373,10 +373,8 @@ label{
   text-align:center;
   vertical-align:middle;
   font-size: 21px;
-
-
-
 }
+
 .start-checklist{
   background-color:  #7CC6D5;
   color: white!important;
@@ -404,3 +402,13 @@ label{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 } 
+.inline-header{
+  display:inline-block;
+} 
+
+.inline-header-img{
+  width: 30px;
+  padding: 0 !important;
+} 
+
+ 
