@@ -90,9 +90,8 @@ section  {
 .col-md-2 {
   background: #ffffff;
   border: #F4F4F4 solid 2px;
- 
- 
   }
+
 .col-md-5 {
 background: #ffffff;
 border: #F4F4F4 solid 2px;
@@ -315,6 +314,10 @@ a:link, a:visited {
     }
 
     @media (max-width: 640px) {
+      .col-md-2 {
+        height: 0px !important;
+        }
+
         .login {
             display: grid;
             grid-template-areas: "form" "arrow" "blocks" "lines";
