@@ -21,45 +21,18 @@ dashboard = html.Div(
                     [
                         html.Img(src='../static/images/plain-icon.png'),
                         html.H1("Horizontal & Vertical"),
-                        html.Strong("visibility"),
+                        html.Strong("Visibility"),
                         html.Br(),
-                        html.H2("Air Traffic:"),
-                        html.P(
-                            """\
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Phasellus diam quam, pulvinar in pulvinar vel,
-                            tristique nec diam. Nam porta diam id risus
-                            volutpat, id hendrerit velit iaculis.
-                            """
-                        ),
-                         html.Button('Documentation', className='button-dash'),
-                        html.H3("Select Airport:"),
-                        html.Div(),
-                  
-                        dbc.Row([
-                            html.Br(),
-                            html.Br(),
-                            html.H6("Integrated by:"),
-                            html.Br(),
-                       
-                        ]),
-                        dbc.Row([
-                            html.Br(),
-                            html.Img(src='../static/images/logo-dici.png'),
-                            html.Img(src='../static/images/logo-mintic.png'),
-                            html.Img(src='../static/images/logo-c-o.png',),
-                            html.Br(),
-
-
-                        ]),
+                         html.Br(),
+                        html.H6("Engine and powered by: "),
+                        html.A("Dicisoft.com"),
                    dbc.Row([
-                           html.Img(src='../static/images/softbank-logo.svg', className='images_logo')
                         ]),
                    
                     ],
                     
                     md=2,
-                        style={"background-color": "#FFFFFF", "height": "100vh", "padding": "3%"},
+                        style={"background-color": "#FFFFFF", "height": "100vh", "padding": "1%"},
                 ),
                 dbc.Col(
                     [
@@ -67,6 +40,9 @@ dashboard = html.Div(
                             dbc.Col([
 
                                 html.H6("Map"),
+                                html.Br(),
+                                html.Button('Documentation', className='button-dash'),
+                                html.Br(),
                                 html.Br(),
                                 dcc.Dropdown(id='select-airport',
                                 options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
@@ -98,10 +74,10 @@ dashboard = html.Div(
                             dbc.Col([
                                 html.H6("Visibility Chart"),
                                 html.Br(),
-                                html.Button('Proyection',id='btnProyection', className='button-dash'),
+                                html.Button('Proyection', id='btnProyection', className='button-dash'),
                                 html.Br(),
                                      html.H6("Vertical visibility"),
-                                dcc.Checklist(id="checklist-vertical",
+                                dcc.Checklist(id='checklist-vertical',
                                         options=[
                                             {'label': '✈', 'value': 'v1'},
                                             {'label': '✈', 'value': 'v2'},
@@ -115,7 +91,7 @@ dashboard = html.Div(
                                 ),      
                                 html.Br(), 
                                 html.H6("Horizontal Visibility"),
-                             dcc.Checklist(id="checklist-horizontal",
+                             dcc.Checklist(id='checklist-horizontal',
                                     options=[
                                         {'label': '✈', 'value': 'h1'},
                                         {'label': '✈', 'value': 'h2'},
@@ -143,6 +119,14 @@ dashboard = html.Div(
                                 dcc.Graph(id="horizontal-vis-plot"),
                             ],
                             md=12),
+                            dbc.Col([
+                                 html.Img(src='../static/images/logo-dici.png'),
+                                  html.Img(src='../static/images/logo-mintic.png'),
+                                  html.Img(src='../static/images/logo-c-o.png'),
+                                  html.Img(src='./static/images/logo-softbank.png'),
+                            ],
+                            md=12),
+                            
                     ],       
                     md=5,
                     style={"background-color": "#F4F4F4", "height": "100vh", "overflow": "scroll" },
@@ -151,5 +135,5 @@ dashboard = html.Div(
         )   
     ],
     className="mt-4",
-      style={"background-color": "#F4F4F4", "height": "100%", "padding": "0.5% 0.5%",},
+      style={"background-color": "#F4F4F4", "height": "100%", "padding": "0.5%"},
     )
