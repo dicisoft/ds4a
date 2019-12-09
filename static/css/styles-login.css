@@ -67,13 +67,13 @@ section  {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  min-width: 240px;
+  min-width: 220px;
   font-size: 12px;
   max-height: 42px;
   line-height: 35px;
   width: 100%;
   margin:  5px 0;
-  max-width: 290px;
+  max-width: 260px;
 }
 
 .button-dash :hover {
@@ -81,7 +81,7 @@ section  {
 }
 
 .images_logo{
-  width: 320px;
+  width: 280px;
   text-align: center;
   align-content: center;
   align-items: center;
@@ -90,18 +90,20 @@ section  {
 .col-md-3 {
   background: #ffffff;
   border: #F4F4F4 solid 2px;
+
+ 
   }
 .col-md-4 {
 background: #ffffff;
 border: #F4F4F4 solid 2px;
-border-bottom: #F4F4F4 solid 8px;
+
 padding-right: 0 !important;
 padding-left: 0 !important;
 }
 .col-md-5{
   background: #ffffff;
   border: #F4F4F4 solid 2px;
-  border-bottom: #F4F4F4 solid 8px;
+
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
@@ -114,7 +116,7 @@ padding-left: 0 !important;
 }
 
 .mt-4, .my-4 {
-  margin-top: 0px !important;
+  margin: 0px !important;
 }
 
 a:link, a:visited {
@@ -128,7 +130,7 @@ a:link, a:visited {
   }
   
   a:hover, a:active {
-    background-color: green;
+    background-color:var(--blue-color) !important;
     color: white;
   }
 
@@ -362,9 +364,9 @@ label:before{
   background-color:  var(--grey-bg-color);
   border-radius: 2px;
   display: inline-block;
-  height: 35px;
-  width: 35px;
-  margin-right: 5px;
+  height: 32px;
+  width: 32px;
+  margin-right: 6px;
   text-align:center;
   vertical-align:middle;
   font-size: 20px;

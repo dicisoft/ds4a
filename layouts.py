@@ -60,6 +60,7 @@ dashboard = html.Div(
 
                         ]),
                    dbc.Row([
+                               html.Br(),
                            html.Img(src='../static/images/softbank-logo.svg', className='images_logo')
                         ]),
                    
@@ -92,7 +93,7 @@ dashboard = html.Div(
                             ],
                             value='SKAR'),
                                      html.Br(),
-                                html.Br(),
+                                        html.Br(),
                                 html.Div(id='map-div')                                
                             ],     
                             md=12),
