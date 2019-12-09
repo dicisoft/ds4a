@@ -116,10 +116,13 @@ dashboard = html.Div(
                             ],
                             md=12),
                             dbc.Col([
+                                                                     html.Br(),
                                  html.Img(src='../static/images/logo-dici.png'),
                                   html.Img(src='../static/images/logo-mintic.png'),
                                   html.Img(src='../static/images/logo-c-o.png'),
-                                  html.Img(src='./static/images/logo-softbank.png'),
+                                  html.Img(src='../static/images/logo-softbank.png'),
+                                                                       html.Br(),
+                                                                        html.Br(),
                             ],
                             md=12),
                             
