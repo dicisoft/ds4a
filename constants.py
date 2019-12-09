@@ -5,14 +5,14 @@ query = "SELECT * FROM dataclean where day_hour > now() - interval '3MONTH'"
 air_names = {#'SKAR':'Aeropuerto Internacional el EdÃ©n (Armenia - QuindÃ­o)',
              'SKBG':'Aeropuerto Internacional Palonegro (Bucaramanga - Santander)',
              'SKBO':'Aeropuerto Internacional El Dorado (Bogotá¡ - Bogotá¡ D.C.)', 
-             'SKCC':'Aeropuerto Internacional Camilo Daza (CÃºcuta - Norte de Santander)', 
-             'SKCG':'Aeropuerto Internacional Rafael NÃºÃ±ez (Cartagena - Bolí­var)', 
+             'SKCC':'Aeropuerto Internacional Camilo Daza (Cúcuta - Norte de Santander)', 
+             'SKCG':'Aeropuerto Internacional Rafael Nuñez (Cartagena - Bolí­var)', 
              'SKCL':'Aeropuerto Internacional Alfonso Bonilla Aragon (Cali - Valle)', 
              #'SKMR':'Aeropuerto Internacional Los Garzones (MonterÃ­a - CÃ³rdoba)', 
-             'SKPE':'Aeropuerto Internacional MatecaÃ±a (Pereira - Risaralda)',
-             'SKSM': 'Aeropuerto Internacional SimÃ³n Bolivar (Santa Marta - Magdalena)',
-             'SKSP':'Aeropuerto Internacional Gustavo Rojas Pinilla (San AndrÃ©s - Colombia)',
-             'SKRG':'Aeropuerto Internacional JosÃ© MarÃ­a CÃ³rdova (MedellÃ­n - Antioquia)',
+             'SKPE':'Aeropuerto Internacional Matecaña (Pereira - Risaralda)',
+             'SKSM': 'Aeropuerto Internacional Simón Bolivar (Santa Marta - Magdalena)',
+             'SKSP':'Aeropuerto Internacional Gustavo Rojas Pinilla (San Andrés - Colombia)',
+             'SKRG':'Aeropuerto Internacional José Marí­a Córdova (Medellí­n - Antioquia)',
              'SKBQ':'Aeropuerto Internacional Ernesto Cortissoz (Barranquilla - Atlantico)'}
 
 ################
