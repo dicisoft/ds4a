@@ -199,7 +199,7 @@ def update_vvis_plot(station):
 
 ###button callback
 @app.callback([Output('checklist-horizontal', 'labelClassName'),
-               Output('checklist-vertical', 'inputClassName')],
+               Output('checklist-vertical', 'labelClassName')],
               [Input('btnProyection','n_clicks')])
 
 def update_checklist(n_clicks):

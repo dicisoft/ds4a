@@ -4,7 +4,7 @@ query = "SELECT * FROM dataclean where day_hour > now() - interval '1MONTH'"
 
 air_names = {#'SKAR':'Aeropuerto Internacional el EdÃ©n (Armenia - QuindÃ­o)',
              'SKBG':'Aeropuerto Internacional Palonegro (Bucaramanga - Santander)',
-             'SKBO':'Aeropuerto Internacional El Dorado (Bogotá¡ - Bogotá¡ D.C.)', 
+             'SKBO':'Aeropuerto Internacional El Dorado (Bogotá - Bogotá D.C.)', 
              'SKCC':'Aeropuerto Internacional Camilo Daza (Cúcuta - Norte de Santander)', 
              'SKCG':'Aeropuerto Internacional Rafael Nuñez (Cartagena - Bolí­var)', 
              'SKCL':'Aeropuerto Internacional Alfonso Bonilla Aragon (Cali - Valle)', 

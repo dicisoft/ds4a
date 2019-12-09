@@ -369,18 +369,18 @@ label{
   margin: 8px;
   text-align:center;
   vertical-align:middle;
-  font-size: 28px;
+  font-size: 23px;
 
 
 
 }
-.start-checkbox{
+.start-checklist{
   background-color:  #7CC6D5;
-  color: white;
+  color: white!important;
 }
-.stop-checkbox{
+.stop-checklist{
   background-color:  #EF1155;
-  color: white;
+  color: white!important;
 }
  /* width */
  ::-webkit-scrollbar {
