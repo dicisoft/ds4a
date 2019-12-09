@@ -103,12 +103,12 @@ dashboard = html.Div(
                                      html.H6("Vertical visibility"),
                                 dcc.Checklist(
                                         options=[
-                                            {'label': '+ 01', 'value': 'v1'},
-                                            {'label': '+ 02', 'value': 'v2'},
-                                            {'label': '+ 03', 'value': 'v3'},
-                                            {'label': '+ 04', 'value': 'v4'},
-                                            {'label': '+ 05', 'value': 'v5'},
-                                            {'label': '+ 06', 'value': 'v6'}
+                                            {'label': '✈', 'value': 'v1'},
+                                            {'label': '✈', 'value': 'v2'},
+                                            {'label': '✈', 'value': 'v3'},
+                                            {'label': '✈', 'value': 'v4'},
+                                            {'label': '✈', 'value': 'v5'},
+                                            {'label': '✈', 'value': 'v6'}
                                         ],
                                         value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
                                         labelStyle={'display': 'inline-block',}
@@ -117,17 +117,19 @@ dashboard = html.Div(
                                 html.H6("Horizontal Visibility"),
                              dcc.Checklist(
                                     options=[
-                                        {'label': '+ 01', 'value': 'h1'},
-                                        {'label': '+ 02', 'value': 'h2'},
-                                        {'label': '+ 03', 'value': 'h3'},
-                                        {'label': '+ 04', 'value': 'h4'},
-                                        {'label': '+ 05', 'value': 'h5'},
-                                        {'label': '+ 06', 'value': 'h6'}
+                                        {'label': '✈', 'value': 'h1'},
+                                        {'label': '✈', 'value': 'h2'},
+                                        {'label': '✈', 'value': 'h3'},
+                                        {'label': '✈', 'value': 'h4'},
+                                        {'label': '✈', 'value': 'h5'},
+                                        {'label': '✈', 'value': 'h6'}
                                     ],
                                     value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
                                     labelStyle={'display': 'inline-block'}
+                                       
                                 ),
-                            html.Br(),         
+                            html.Br(), 
+                             html.Br(),         
                             ],
                             md=12), 
                             
@@ -137,7 +139,7 @@ dashboard = html.Div(
                             ],
                             md=12),                                         
                             dbc.Col([
-                                html.H6("Horizontalvisibility Chart"),
+                                html.H6("Horizontal visibility Chart"),
                                 dcc.Graph(id="horizontal-vis-plot"),
                             ],
                             md=12),
