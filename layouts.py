@@ -23,12 +23,10 @@ dashboard = html.Div(
                         html.H1("Horizontal & Vertical"),
                         html.Strong("Visibility"),
                         html.Br(),
-                        html.Br(),
-                  
-                       
-                        
+                         html.Br(),
+                        html.H6("Engine and powered by: "),
+                        html.A("Dicisoft.com"),
                    dbc.Row([
-                           html.Img(src='../static/images/softbank-logo.svg', className='images_logo')
                         ]),
                    
                     ],
@@ -125,6 +123,7 @@ dashboard = html.Div(
                                  html.Img(src='../static/images/logo-dici.png'),
                                   html.Img(src='../static/images/logo-mintic.png'),
                                   html.Img(src='../static/images/logo-c-o.png'),
+                                  html.Img(src='./static/images/logo-softbank.png'),
                             ],
                             md=12),
                             
