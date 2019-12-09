@@ -7,7 +7,7 @@ body {
 }
 strong {
   color: #555555; 
-  font-size: 40px; 
+  font-size: 29px; 
   font-weight:600; 
   letter-spacing: -1px;
   padding: 0%;
@@ -15,7 +15,7 @@ strong {
 }
 h1 {
   color: #777777; 
-  font-size: 30px; 
+  font-size: 26px; 
   font-weight:200; 
   letter-spacing: -1px;
   padding: 0%;
@@ -81,26 +81,26 @@ section  {
 }
 
 .images_logo{
-  width: 280px;
+  width: 230px;
   text-align: center;
   align-content: center;
   align-items: center;
   opacity: 0.7;
 }
-.col-md-3 {
+.col-md-2 {
   background: #ffffff;
   border: #F4F4F4 solid 2px;
-
+ 
  
   }
-.col-md-4 {
+.col-md-5 {
 background: #ffffff;
 border: #F4F4F4 solid 2px;
 
 padding-right: 0 !important;
 padding-left: 0 !important;
 }
-.col-md-5{
+.col-md-6 {
   background: #ffffff;
   border: #F4F4F4 solid 2px;
 
@@ -369,7 +369,7 @@ label{
   margin: 8px;
   text-align:center;
   vertical-align:middle;
-  font-size: 23px;
+  font-size: 21px;
 
 
 

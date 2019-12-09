@@ -1,6 +1,6 @@
 stations = ['SKBO','SKBG','SKCL','SKCC','SKCG','SKPE','SKSP','SKSM','SKRG']
 
-query = "SELECT * FROM dataclean where day_hour > now() - interval '3MONTH'"
+query = "SELECT * FROM dataclean where day_hour > now() - interval '1MONTH'"
 
 air_names = {#'SKAR':'Aeropuerto Internacional el EdÃ©n (Armenia - QuindÃ­o)',
              'SKBG':'Aeropuerto Internacional Palonegro (Bucaramanga - Santander)',
