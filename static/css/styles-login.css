@@ -359,24 +359,28 @@ input[type=checkbox] + label{
   
 }/*esta linea significa esto + el siguiente elemento*/
 
-label:before{
+label{
   content: '✈';
   background-color:  var(--grey-bg-color);
   border-radius: 2px;
   display: inline-block;
-  height: 32px;
-  width: 32px;
-  margin-right: 6px;
+  height: 45px;
+  width: 45px;
+  margin: 8px;
   text-align:center;
   vertical-align:middle;
-  font-size: 20px;
+  font-size: 28px;
+
+
 
 }
-.start-checklist {
+.start-checkbox{
   background-color:  #7CC6D5;
+  color: white;
 }
-.stop-checklist{
+.stop-checkbox{
   background-color:  #EF1155;
+  color: white;
 }
  /* width */
  ::-webkit-scrollbar {
