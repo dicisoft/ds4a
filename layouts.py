@@ -42,22 +42,7 @@ dashboard = html.Div(
                          html.Button('Documentation', className='button-dash'),
                         html.H3("Select Airport:"),
                         html.Div(),
-                        dbc.Select(
-                            id="airport-select",
-                            options=[
-                                {"label": "Armenia", "value": "SKAR"},#Armenia
-                                {"label": "Mariquita", "value": "SKQU"},#Mariquita
-                                {"label": "Bogota", "value": "SKBO"},#Bogota
-                                {"label": "Bucaramanga", "value": "SKBG"},#Bucaramanga
-                                {"label": "Cali", "value": "SKCL"},#Cali
-                                {"label": "Cucuta", "value": "SKCC"},#Cucuta
-                                {"label": "Cartagena", "value": "SKCG"},#cartagena
-                                {"label": "Pereira", "value": "SKPE"},#pereira
-                                {"label": "San Andres", "value": "SKSP"},#San Andres
-                                {"label": "Santa Marta", "value": "SKSM"},#Santa Marta
-                                {"label": "Monteria", "value": "SKMR"},#Monteria
-                            ],
-                            value='SKAR'),
+                      
                         dbc.Row([
                             html.Br(),
                             html.Br(),
@@ -87,7 +72,27 @@ dashboard = html.Div(
                     [
                        
                             dbc.Col([
+                                
+                                
                                 html.H6("Map"),
+                                  dbc.Select(
+                            id="airport-select",
+                            options=[
+                                {"label": "Armenia", "value": "SKAR"},#Armenia
+                                {"label": "Mariquita", "value": "SKQU"},#Mariquita
+                                {"label": "Bogota", "value": "SKBO"},#Bogota
+                                {"label": "Bucaramanga", "value": "SKBG"},#Bucaramanga
+                                {"label": "Cali", "value": "SKCL"},#Cali
+                                {"label": "Cucuta", "value": "SKCC"},#Cucuta
+                                {"label": "Cartagena", "value": "SKCG"},#cartagena
+                                {"label": "Pereira", "value": "SKPE"},#pereira
+                                {"label": "San Andres", "value": "SKSP"},#San Andres
+                                {"label": "Santa Marta", "value": "SKSM"},#Santa Marta
+                                {"label": "Monteria", "value": "SKMR"},#Monteria
+                            ],
+                            value='SKAR'),
+                                     html.Br(),
+                                html.Br(),
                                 html.Div(id='map-div')                                
                             ],     
                             md=12),
@@ -105,7 +110,7 @@ dashboard = html.Div(
                             ],
                             md=12)
                     ],
-                    md=5,
+                    md=4,
                     style={"background-color": "#F4F4F4", "height": "100vh", "padding": "0.% 0",  "overflow": "scroll"},
                 ),
                  dbc.Col(
@@ -164,7 +169,7 @@ dashboard = html.Div(
 
                             md=12),
                     ],       
-                    md=4,
+                    md=5,
                     style={"background-color": "#F4F4F4", "height": "100vh", "overflow": "scroll" },
                 ),        
             ]  
