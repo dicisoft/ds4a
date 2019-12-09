@@ -76,6 +76,7 @@
     <section class="figure-section"  >
 				<!-- particles.js container --> <div id="particles-js">
 <div style="position: absolute;" class="figure-section">
+	<div class="figure-container">
 	<br>
  <img src="../static/images/plain-icon-horizontal.png" alt="Login Icon" height="70" >
         <h2>Data <strong> Analytics</strong> </h2>
@@ -88,6 +89,7 @@
 		<div class="logo-footer">
 				<img src="../static/images/logo-softbank.png" alt="Login Icon" width="150">
 		</div>
+	</div>
 				</div> <!-- stats - count particles -->  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
 			</div>
     </section>
@@ -235,7 +237,7 @@
 			flex-direction: column;
 			text-align: center;
 			color: #FFF;
-			padding:  18% 18% ;
+
 		}
 	
 		 .lines-section  {
@@ -318,10 +320,28 @@
 			display: flex;
 			justify-content:  flex-end;
 			width: 100%;
-			height: 30vh;
+			height: 25vh;
+		}
+
+		.figure-container{
+			padding: 10% 10%;
+		
+
 		}
 	
 		@media (max-width: 640px) {
+			.form-section {
+				padding: 50px;
+ 
+		}
+
+			.figure-container{
+			padding: 10% 10%;
+			 background: #333333; 
+			 height: 900px;
+			 min-width: 300px;
+
+		}
 			.login {
 				display: grid;
 				grid-template-areas: "form" "arrow" "blocks" "lines";
@@ -354,6 +374,18 @@
 				align-items: center;
 				justify-content: center;
 			}
+			.figure-section  {
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			align-content: center;
+			color: #FFF;
+			padding:  0;
+			width: 200%;
+			height: 0;
+		}
+		
 		}
 
 

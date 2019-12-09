@@ -35,9 +35,7 @@ dashboard = html.Div(
                          html.Button('Documentation', className='button-dash'),
                         html.H3("Select Airport:"),
                         html.Div(),
-                        dcc.Dropdown(id='select-airport',
-                                        options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
-                                        value='SKBO'),
+                  
                         dbc.Row([
                             html.Br(),
                             html.Br(),
@@ -60,14 +58,20 @@ dashboard = html.Div(
                    
                     ],
                     
-                    md=3,
+                    md=2,
                         style={"background-color": "#FFFFFF", "height": "100vh", "padding": "3%"},
                 ),
                 dbc.Col(
                     [
                        
                             dbc.Col([
+
                                 html.H6("Map"),
+                                html.Br(),
+                                dcc.Dropdown(id='select-airport',
+                                options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
+                                value='SKBO'),
+                                     html.Br(),
                                 html.Div(id='map-div')                                
                             ],     
                             md=12),
@@ -138,7 +142,7 @@ dashboard = html.Div(
                             ],
                             md=12),
                     ],       
-                    md=4,
+                    md=5,
                     style={"background-color": "#F4F4F4", "height": "100vh", "overflow": "scroll" },
                 ),        
             ]  
