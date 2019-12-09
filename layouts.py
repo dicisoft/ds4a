@@ -94,10 +94,10 @@ dashboard = html.Div(
                             dbc.Col([
                                 html.H6("Visibility Chart"),
                                 html.Br(),
-                                html.Button('Proyection', className='button-dash'),
+                                html.Button('Proyection',id='btnProyection', className='button-dash'),
                                 html.Br(),
                                      html.H6("Vertical visibility"),
-                                dcc.Checklist(
+                                dcc.Checklist(id="checklist-vertical",
                                         options=[
                                             {'label': '+ 01', 'value': 'v1'},
                                             {'label': '+ 02', 'value': 'v2'},
@@ -111,7 +111,7 @@ dashboard = html.Div(
                                 ),      
                                 html.Br(), 
                                 html.H6("Horizontal Visibility"),
-                             dcc.Checklist(
+                             dcc.Checklist(id="checklist-horizontal",
                                     options=[
                                         {'label': '+ 01', 'value': 'h1'},
                                         {'label': '+ 02', 'value': 'h2'},

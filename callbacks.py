@@ -196,3 +196,12 @@ def update_vvis_plot(station):
         "data":plot_data,
         "layout": layout
     }
+
+###button callback
+@app.callback([Output('checklist-horizontal', 'labelClassName'),
+               Output('checklist-vertical', 'inputClassName')],
+              [Input('btnProyection','n_clicks')])
+
+def update_checklist(n_clicks):
+    print(n_clicks)
+    return 'start-checklist','stop-checklist'

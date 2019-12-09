@@ -372,10 +372,10 @@ label:before{
   font-size: 20px;
 
 }
-.start input[type=checkbox]:checked + label:before{
+.start-checklist {
   background-color:  #7CC6D5;
 }
-.stop input[type=checkbox]:checked + label:before{
+.stop-checklist{
   background-color:  #EF1155;
 }
  /* width */
