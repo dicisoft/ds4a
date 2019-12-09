@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+			<div class="container">
+					<div class="row">
+					  <section class="col-md-3">
+						  <img src="../static/images/plain-icon.png"></img>
+						  <h1>Horizontal & Vertical</h1><strong>visibility</strong>
+						  <br>
+						  <h2>Air Traffic:</h2>
+						  <p>	Lorem ipsum dolor sit amet, consectetur adipiscing
+								elit. Phasellus diam quam, pulvinar in pulvinar vel,
+								tristique nec diam. Nam porta diam id risus
+								volutpat, id hendrerit velit iaculis.</p>
+						  <button></button>
+						  <br>
+						  <br>
+						  <h6>ntegrated by:</h6>
+						  <br>
+						  <img src="../static/images/logo-dici.png"></img>
+						  <img src="../static/images/logo-mintic.png"></img>
+						  <img src="../static/images/logo-c-o.png"></img>
+						  <br>
+						  <img src="../static/images/softbank-logo.svg" class="images_logo"></img>
+					
+						  
+
+					  </section>
+					  <section class="col-md-5" style="background:#F4F4F4 ;">
+						<div class="col-md-12"></div>
+					  </section>
+					  <section class="col-md-4" style="background:#F4F4F4 ;">
+							<div class="col-md-12"></div>
+					  </section>
+					</div>
+				  </div>
+</body>
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/main.js"></script>
+
+</body>
+</html>
+
+<style>
+	p {
+		font-size: 12px;
+		color: #FFF;
+		font-weight: 100;
+		}  
+	
+		a {
+		font-size: 12px;
+		color: var(--violet-color);
+		font-weight: 100;
+		} 
+	
+		h1 {
+		font-size: 32px;
+		color: #FFF;
+		font-weight: lighter;
+		margin: 5% 0 0
+		}  
+	
+		h3 {
+		font-size: 15px;
+		color: #FFF;
+		font-weight: 100;
+		margin: 0 0 3%
+		}  
+	
+		h4 {
+		font-size: 15px;
+		color: var(--dark-color);
+		margin: 2% 0 5%
+		}  
+	
+		h5 {
+		font-size: 13px;
+		color: var(--grey-light-color);
+		font-weight: 100;
+		margin: 0 0 5%;
+		width: 80%
+		}  
+	
+		label {
+		font-size: 12px;
+		color: var(--grey-light-color);
+		font-weight: 100;
+		margin: 2% 0 5%;
+		}  
+	
+		small {
+		font-size: 10px;
+		color: var(--grey-font-color);
+		font-weight: 100;
+		text-align: right;
+		} 
+	
+		hr{
+			color: withe;
+			width: 100%
+		} 
+	
+		form{
+		min-width:30vw;
+		} 
+	
+	:root {
+			--blue-color: #7CC6D5;
+			--blue-disable-color: #677272;
+			--violet-color: #6B69A6;
+			--violet-hover-color: #A1A1D1;
+			--grey-bg-color: #EFEFEF;
+			--grey-font-color: #888;
+			--grey-light-color: #AAA;
+			--grey-medium-color: #C6C6C6;
+			--grey-dark-color: #999999;
+			--grey-controls-color: #CCCC;
+			--dark-color: #333333;
+			--light-color: #FFF;
+		}
+		
+		body {
+			font-family: Helvetica, sans-serif;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+		
+		.login {
+			display: grid;
+			grid-template-areas: "form arrow blocks lines";
+			grid-template-columns: 48% 2% 48% 2%;
+			grid-template-rows: 1fr;
+			min-height: 100vh
+		}
+		
+		.form-section {
+			background-color: var(--light-color);
+			border-top: none;
+			grid-area: form;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			flex-direction: column;
+			padding:  6% 12%
+		}
+		
+		.arrow-section  {
+			background-color: var(--light-color);
+			grid-area: arrow;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+		
+		.figure-section  {
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+			color: #FFF;
+			padding:  18% 18% ;
+		}
+	
+		 .lines-section  {
+			background-color: var(--violet-color);
+			display: grid;
+			grid-area: lines
+		}
+		
+		.login-arrow {
+			width: 0;
+			height: 0;
+			border-top: 20px solid transparent;
+			border-bottom: 20px solid transparent;
+			border-right: 20px solid var(--dark-color);
+		}
+	
+		
+		.flexbox-widget-btn {
+			background: var(--violet-color);
+			border: 0;
+			border-radius: 4px;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			min-width: 280px;
+			font-size: 12px;
+			max-height: 42px;
+			line-height: 35px;
+			width: 100%;
+			margin:  5px 0
+	
+		}
+	
+		.flexbox-widget-btn-invert {
+			background: var(--blue-color);
+			border: 0;
+			border-radius: 4px;
+			color: #FFF;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			min-width: 170px;
+			font-size: 12px;
+			max-height: 42px;
+			line-height: 35px;
+			width: 30%;
+			margin:  5px 0
+		}
+		
+		.textbox-rectangle {
+			min-width: 280px;
+			border-radius: 4px;
+			color: var(--grey-font-color);
+			cursor: pointer;
+			font-weight: 300;
+			font-size: 12px;
+			max-height: 43px;
+			width: 100%;
+			padding: .375rem .450rem;
+			line-height: 5.5;
+		   background-color: #fff;
+		   background-clip: padding-box;
+		   border: 1px solid #ced4da;
+		   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		   margin:5px 0
+	
+		}
+		.logo-footer 
+				{
+			align-items: flex-end;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: 10vh;
+		}
+		
+		.web-buton{
+			align-items: flex-end;
+			display: flex;
+			justify-content:  flex-end;
+			width: 100%;
+			height: 30vh;
+		}
+	
+		@media (max-width: 640px) {
+			.login {
+				display: grid;
+				grid-template-areas: "form" "arrow" "blocks" "lines";
+				grid-template-columns: 100%;
+				grid-template-rows: 80% 20%;
+				min-height: 100vh
+			}
+			.login > .arrow-section  {
+			align-items: center;
+			justify-content: center;
+		}
+			.login > .lines-section  {
+				background-color: var(--yellow-color);
+				display: grid;
+				display: flex;
+				flex-direction: row;
+				height: 10px;
+			}
+			.login-arrow {
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid var(--dark-color);
+			}
+			.login > aside {
+				background-color: var(--grey-bg-color);
+				grid-area: arrow;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+
+
+
