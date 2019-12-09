@@ -4,69 +4,65 @@ import dash_core_components as dcc
 import pandas as pd
 from dash.dependencies import Input, Output, State
 
+from constants import vars_list_dt
 from app import app
+from logic import create_plot_data
+from db_connector import get_data
+import dash_table
+
 
 # mapbox_access_token = open(".mapbox_token").read()
 mapbox_access_token = 'pk.eyJ1IjoiYWNjaGF2ZXphIiwiYSI6ImNrMzY5cjd5djFoNDIzbHBvOTAyOG44ejUifQ.9DNyjQ1Zs94d9EmzkmbVuQ'
+df = get_data()
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
-df_table = pd.read_csv(
-    'https://gist.githubusercontent.com/chriddyp/'
-    'c78bf172206ce24f77d6363a2d754b59/raw/'
-    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
-    'usa-agricultural-exports-2011.csv')
+# fig = go.Figure(data=go.Scattergeo(
+#         locationmode = 'USA-states',
+#         lon = df['long'],
+#         lat = df['lat'],
+#         text = df['text'],
+#         mode = 'markers',
+#         marker = dict(
+#             size = 8,
+#             opacity = 0.8,
+#             reversescale = True,
+#             autocolorscale = False,
+#             symbol = 'square',
+#             line = dict(
+#                 width=1,
+#                 color='rgba(79, 199, 218)'
+#             ),
+#             colorscale = 'purples',
+#             cmin = 0,
+#             color = df['cnt'],
+#             cmax = df['cnt'].max(),
+#             colorbar_title="Incoming flights<br>February 2011"
+#         )))
 
-df['text'] = df['airport'] + '' + df['city'] + ', ' + df['state'] + '' + 'Arrivals: ' + df['cnt'].astype(str)
-df_table['index'] = range(1, len(df_table) + 1)
+# fig.update_layout(
+#         geo = dict(
+#             scope='usa',
+#             projection_type='albers usa',
+#             showland = True,
+#             landcolor = "rgb(250, 250, 250)",
+#             subunitcolor = "rgb(217, 217, 217)",
+#             countrycolor = "rgb(217, 217, 217)",
+#             countrywidth = 0.5,
+#             subunitwidth = 0.5,            
+#         ),
+#     )
 
-fig = go.Figure(data=go.Scattergeo(
-        locationmode = 'USA-states',
-        lon = df['long'],
-        lat = df['lat'],
-        text = df['text'],
-        mode = 'markers',
-        marker = dict(
-            size = 8,
-            opacity = 0.8,
-            reversescale = True,
-            autocolorscale = False,
-            symbol = 'square',
-            line = dict(
-                width=1,
-                color='rgba(79, 199, 218)'
-            ),
-            colorscale = 'purples',
-            cmin = 0,
-            color = df['cnt'],
-            cmax = df['cnt'].max(),
-            colorbar_title="Incoming flights<br>February 2011"
-        )))
-
-fig.update_layout(
-        geo = dict(
-            scope='usa',
-            projection_type='albers usa',
-            showland = True,
-            landcolor = "rgb(250, 250, 250)",
-            subunitcolor = "rgb(217, 217, 217)",
-            countrycolor = "rgb(217, 217, 217)",
-            countrywidth = 0.5,
-            subunitwidth = 0.5,            
-        ),
-    )
-
-@app.callback(
-    Output('datatable-paging', 'data'),
-    [Input('datatable-paging', "page_current"),
-     Input('datatable-paging', "page_size")])
-def update_table(page_current,page_size):
-    return df_table.iloc[
-        page_current*page_size:(page_current+ 1)*page_size
-    ].to_dict('records')
+# @app.callback(
+#     Output('datatable-paging', 'data'),
+#     [Input('datatable-paging', "page_current"),
+#      Input('datatable-paging', "page_size")])
+# def update_table(page_current,page_size):
+#     return df_table.iloc[
+#         page_current*page_size:(page_current+ 1)*page_size
+#     ].to_dict('records')
 
 @app.callback(    
     Output('map-div', 'children'),
-    [Input('airport-select','value')])
+    [Input('select-airport','value')])
 def update_map(airport_id):
     print('cambio de mapa')    
 
@@ -118,3 +114,85 @@ def update_map(airport_id):
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":15})    
     return dcc.Graph(id='graph', figure=fig)
 
+#########
+### Call Back for the data table
+
+@app.callback(
+    Output('table-div', 'children'),
+    [ 
+    Input('select-airport', 'value'),
+    Input('select-columns', 'value')
+    ]
+)
+
+def update_table(airport,columns):
+    vars_list_dt2 = [a for a in vars_list_dt if a['id'] in columns]
+    dff = df.copy()
+    if airport:
+        dff = dff[dff['station']==airport]
+    if columns:
+        dff = dff[columns]
+
+    children=[dash_table.DataTable(
+                    id='table',
+                    columns=vars_list_dt2,
+                    data=dff.to_dict('records'),
+                    style_cell={'width': '50px'},
+                    style_table={
+                        'maxHeight': '450px',
+                        'overflowY': 'scroll'
+                    })
+                ]
+    return children
+
+#########
+### Call Back for the models prediction
+
+#################
+### Horizontal Visibility
+
+@app.callback(
+    Output('horizontal-vis-plot', 'figure'),
+    [ 
+    Input('select-airport', 'value')
+    ]
+)
+
+def update_hvis_plot(station):
+    dff = create_plot_data(df=df,station=station,variable='vsby')
+    plot_data = []
+    for key, data in dff.groupby('type'):
+        plot_data.append(
+            go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
+        )
+    layout = go.Layout(title="Horizontal Visibility Prediction",
+                       yaxis={"title":"Horizontal Visibility"},
+                       xaxis={"title":"Date"})   
+    return {
+        "data":plot_data,
+        "layout": layout
+    }    
+
+
+### Vertical Visibility
+@app.callback(
+    Output('vertical-vis-plot', 'figure'),
+    [ 
+    Input('select-airport', 'value')
+    ]
+)
+
+def update_vvis_plot(station):
+    dff = create_plot_data(df=df,station=station,variable='skyl1')
+    plot_data = []
+    for key, data in dff.groupby('type'):
+        plot_data.append(
+            go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
+        )
+    layout = go.Layout(title="Vertical Visibility Prediction",
+                       yaxis={"title":"Vertical Visibility"},
+                       xaxis={"title":"Date"})   
+    return {
+        "data":plot_data,
+        "layout": layout
+    }

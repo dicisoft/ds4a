@@ -1,5 +1,4 @@
 import flask
-import pandas as pd
 from flask import Flask, render_template, request,redirect, url_for
 import dash_core_components as dcc
 import dash_html_components as html
@@ -12,6 +11,8 @@ from layouts import dashboard
 @server.route('/')
 def index():
     return render_template('home.html')
+
+
 
 @server.route('/result', methods = ['POST', 'GET'])
 def result():

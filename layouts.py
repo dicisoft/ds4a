@@ -5,20 +5,13 @@ import plotly.graph_objects as go
 import dash_table as dt
 import pandas as pd
 from app import app
+from constants import air_names, vars_list, vars_list_dt
+from db_connector import get_data
 
 PAGE_SIZE = 11
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
-df_table = pd.read_csv(
-    'https://gist.githubusercontent.com/chriddyp/'
-    'c78bf172206ce24f77d6363a2d754b59/raw/'
-    'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
-    'usa-agricultural-exports-2011.csv')
-
-df['text'] = df['airport'] + '' + df['city'] + ', ' + df['state'] + '' + 'Arrivals: ' + df['cnt'].astype(str)
-df_table['index'] = range(1, len(df_table) + 1)
-
-
+df = get_data()
+df['station_name'] = df['station'].map(air_names)
 
 dashboard = html.Div(
     [
@@ -42,25 +35,12 @@ dashboard = html.Div(
                          html.Button('Documentation', className='button-dash'),
                         html.H3("Select Airport:"),
                         html.Div(),
-                        dbc.Select(
-                            id="airport-select",
-                            options=[
-                                {"label": "Armenia", "value": "SKAR"},#Armenia
-                                {"label": "Mariquita", "value": "SKQU"},#Mariquita
-                                {"label": "Bogota", "value": "SKBO"},#Bogota
-                                {"label": "Bucaramanga", "value": "SKBG"},#Bucaramanga
-                                {"label": "Cali", "value": "SKCL"},#Cali
-                                {"label": "Cucuta", "value": "SKCC"},#Cucuta
-                                {"label": "Cartagena", "value": "SKCG"},#cartagena
-                                {"label": "Pereira", "value": "SKPE"},#pereira
-                                {"label": "San Andres", "value": "SKSP"},#San Andres
-                                {"label": "Santa Marta", "value": "SKSM"},#Santa Marta
-                                {"label": "Monteria", "value": "SKMR"},#Monteria
-                            ],
-                            value='SKAR'),
+                        dcc.Dropdown(id='select-airport',
+                                        options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
+                                        value='SKBO'),
                         dbc.Row([
                             html.Br(),
-                                                        html.Br(),
+                            html.Br(),
                             html.H6("Integrated by:"),
                             html.Br(),
                        
@@ -94,13 +74,14 @@ dashboard = html.Div(
                             dbc.Col([
                                 html.H6("Grid"),
                                 dt.DataTable(
-                                    id='datatable-paging',
-                                    columns=[
-                                        {"name": i, "id": i} for i in sorted(df.columns)
-                                    ],
-                                    page_current=0,
-                                    page_size=PAGE_SIZE,
-                                    page_action='custom'
+                                    id='table',
+                                    columns=vars_list_dt,
+                                    data=df.to_dict('records'),
+                                    style_cell={'width': '50px'},
+                                    style_table={
+                                            'maxHeight': '450px',
+                                            'overflowY': 'scroll'
+                                        }
                                 )
                             ],
                             md=12)
@@ -117,51 +98,44 @@ dashboard = html.Div(
                                 html.Br(),
                                      html.H6("Vertical visibility"),
                                 dcc.Checklist(
-    options=[
-        {'label': '+ 01', 'value': 'v1'},
-        {'label': '+ 02', 'value': 'v2'},
-        {'label': '+ 03', 'value': 'v3'},
-        {'label': '+ 04', 'value': 'v4'},
-        {'label': '+ 05', 'value': 'v5'},
-        {'label': '+ 06', 'value': 'v6'}
-    ],
-    value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
-    labelStyle={'display': 'inline-block',}
-),      html.Br(), 
-                                     html.H6("Horizontal Visibility"),
+                                        options=[
+                                            {'label': '+ 01', 'value': 'v1'},
+                                            {'label': '+ 02', 'value': 'v2'},
+                                            {'label': '+ 03', 'value': 'v3'},
+                                            {'label': '+ 04', 'value': 'v4'},
+                                            {'label': '+ 05', 'value': 'v5'},
+                                            {'label': '+ 06', 'value': 'v6'}
+                                        ],
+                                        value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),      
+                                html.Br(), 
+                                html.H6("Horizontal Visibility"),
                              dcc.Checklist(
-    options=[
-        {'label': '+ 01', 'value': 'h1'},
-        {'label': '+ 02', 'value': 'h2'},
-        {'label': '+ 03', 'value': 'h3'},
-        {'label': '+ 04', 'value': 'h4'},
-        {'label': '+ 05', 'value': 'h5'},
-        {'label': '+ 06', 'value': 'h6'}
-    ],
-    value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-    labelStyle={'display': 'inline-block'}
-) ,
-                                html.Br(),         
+                                    options=[
+                                        {'label': '+ 01', 'value': 'h1'},
+                                        {'label': '+ 02', 'value': 'h2'},
+                                        {'label': '+ 03', 'value': 'h3'},
+                                        {'label': '+ 04', 'value': 'h4'},
+                                        {'label': '+ 05', 'value': 'h5'},
+                                        {'label': '+ 06', 'value': 'h6'}
+                                    ],
+                                    value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+                                    labelStyle={'display': 'inline-block'}
+                                ),
+                            html.Br(),         
                             ],
                             md=12), 
                             
-                      dbc.Col([
+                            dbc.Col([
                                 html.H6("Vertical visibility Chart"),
-                                dcc.Graph(
-                                    figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
-                                ),
+                                dcc.Graph(id="vertical-vis-plot"),
                             ],
-
-                            md=12),
-              
-                           
+                            md=12),                                         
                             dbc.Col([
                                 html.H6("Horizontalvisibility Chart"),
-                                dcc.Graph(
-                                    figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
-                                ),
+                                dcc.Graph(id="horizontal-vis-plot"),
                             ],
-
                             md=12),
                     ],       
                     md=4,
