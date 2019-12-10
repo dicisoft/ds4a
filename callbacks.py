@@ -286,6 +286,7 @@ def update_vvis_plot(station,n_clicks):
 
 def update_checklist(n_clicks, station):
     lresul = [] 
+    smsText = []
 
     if(n_clicks==0):
         #hacer aqui que todos los botones este grises 
