@@ -4,6 +4,7 @@ import dash_core_components as dcc
 import numpy as np
 import pandas as pd
 from dash.dependencies import Input, Output, State
+from yellowPushSMS.rest import Client
 
 from constants import vars_list_dt, airport_lat_lon
 from app import app
@@ -275,6 +276,15 @@ def update_vvis_plot(station,n_clicks):
         "layout": layout
     }
 
+def sendSMS(text):
+    user = "sbarrera@identidadtelecom.net"
+    password  = "Sb2019/*-"
+    client = Client(user, password)
+    rsp = client.SendSMS(mobileNumbers="573045898420,573105571139,573003070697,573112455984,573224716938,573143422973", from_="46373", message=text)
+    print(rsp)
+
+
+
 ###button callback
 @app.callback([Output('checklist-horizontal1', 'labelClassName'),
                Output('checklist-horizontal2', 'labelClassName'),
@@ -315,6 +325,7 @@ def update_checklist(n_clicks, station):
         for index,row in data.reset_index(drop=True).iterrows():
             if(row['vsby'] < lim ):
                 print('Medida por debajo {} indice {}'.format(row['vsby'],index))
+                smsText.append("Airport : {} VH no adecuada para las {} ".format(station,row['day_hour']) )
                 lresul.append('stop-checklist')  
             else:
                 print('Medida Ok {} indice {}'.format(row['vsby'],index))
@@ -331,15 +342,20 @@ def update_checklist(n_clicks, station):
         for index,row in data.reset_index(drop=True).iterrows():
             if(row['skyl1'] < lim ):
                 print('Medida por debajo {} indice {}'.format(row['skyl1'],index))
+                smsText.append("Airport : {} VV no adecuada para las {} ".format(station,row['day_hour']) )
                 lresul.append('stop-checklist')  
             else:
                 print('Medida Ok {} indice {}'.format(row['skyl1'],index))
                 lresul.append('start-checklist')
         
         print(len(lresul))
-        if(len(lresul)<12):
+        if(len(lresul) < 12 ):
             print('medidas incompletas')
             #poner un estilo amarillo a todos los que hagan falta 
+
+        if (len(smsText) > 0 ):
+            textSMS = "\n".join(smsText)
+            sendSMS(textSMS)                
 
 
         return lresul[0],lresul[1],lresul[2],lresul[3],lresul[4],lresul[5],lresul[6],lresul[7],lresul[8],lresul[9],lresul[10],lresul[11]
