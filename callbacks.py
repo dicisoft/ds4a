@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from dash.dependencies import Input, Output, State
 
-from constants import vars_list_dt
+from constants import vars_list_dt, airport_lat_lon
 from app import app
 from logic import create_plot_data
 from db_connector import get_data
@@ -64,40 +64,47 @@ df = get_data()
 @app.callback(    
     Output('map-div', 'children'),
     [Input('select-airport','value')])
-def update_map(airport_id):
-       
 
+def update_map(airport_id):    
     fig = go.Figure(go.Scattermapbox(
-            lat=['4.4528825',
-                    '5.2067919',
-                    '4.6931832',
-                    '7.1156792',
-                    '3.5411098',
-                    '7.9169411',
-                    '10.446381',
-                    '4.8151963',
-                    '12.5861164',
-                    '11.116147',
-                    '8.8251965'],
-            lon =['-75.7684869',
-                    '-74.8877517',
-                    '-74.1460662',
-                    '-73.1721692',
-                    '-76.3867725',
-                    '-72.5126214',
-                    '-75.5174062',
-                    '-75.7384446',
-                    '-81.7043465',
-                    '-74.2343331',
-                    '-75.8262014'],
+            lat=['7.1156792',
+                '4.6931832',
+                '7.9169411',
+                '10.446381',
+                '3.5411098',
+                '4.8151963',
+                '11.116147',
+                '12.5861164',
+                '6.1707687',
+                '10.886538'],
+            lon =['-73.1721692',
+                '-74.1460662',
+                '-72.5126214',
+                '-75.5174062',
+                '-76.3867725',
+                '-75.7384446',
+                '-74.2343331',
+                '-81.7043465',
+                '-75.4298088',
+                '-74.778667'],
             mode='markers',
             marker=go.scattermapbox.Marker(
                 size=14,
                 symbol='airport'
             ),
-            text=['Armenia', 'Mariquita', 'Bogotá', 'Bucaramanga', 'Cali', 'Cucuta', 'Cartagena', 'Pereira', 'San Andres', 'Santa Marta', 'Monteria'],
+            text=['Bucaramanga', 'Bogotá', 'Cucutá', 'Cartagena', 'Cali', 'Pereira', 'Santa Marta', 'San Andrés', 'Medellin', 'Barranquiña'],
             showlegend=False
         ))
+
+    lat_airport = 0
+    lon_airport = 0
+    print(airport_lat_lon)
+    for a in airport_lat_lon:
+        if a['station_name'] == airport_id :
+            print(a['lat'])
+            print(a['lon'])
+            lat_airport = float(a['lat'])
+            lon_airport = float(a['lon'])
 
     fig.update_layout(
         hovermode='closest',
@@ -105,11 +112,11 @@ def update_map(airport_id):
             accesstoken=mapbox_access_token,
             bearing=0,
             center=go.layout.mapbox.Center(
-                lat=5.2067919,
-                lon=-74.8877517
+                lat=lat_airport,
+                lon=lon_airport
             ),
             pitch=0,
-            zoom=5            
+            zoom=9            
         )
     )
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":15})    
