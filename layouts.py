@@ -20,8 +20,9 @@ dashboard = html.Div(
                 dbc.Col(
                     [
                         html.Img(src='../static/images/plain-icon.png', className='inline-header'),
-                        html.H1("Horizontal & Vertical  " , className='inline-header'),
-                        html.Strong("  Visibility", className='inline-header'),
+                        html.Strong("  VEMCA:", className='inline-header'),
+                        html.H1("Visibility Estimation Model in Colombian Airports  " , className='inline-header'),
+                       
                    dbc.Row([
                         ]),
                    
