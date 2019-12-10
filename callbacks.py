@@ -269,17 +269,47 @@ def update_vvis_plot(station,n_clicks):
     }
 
 ###button callback
-@app.callback([Output('checklist-horizontal', 'labelClassName'),
-               Output('checklist-vertical', 'labelClassName')],
-              [Input('btnProyection','n_clicks'),
-              Input('select-airport', 'value')])
+@app.callback([Output('checklist-horizontal1', 'labelClassName'),
+               Output('checklist-horizontal2', 'labelClassName'),
+               Output('checklist-horizontal3', 'labelClassName'),
+               Output('checklist-horizontal4', 'labelClassName'),
+               Output('checklist-horizontal5', 'labelClassName'),
+               Output('checklist-horizontal6', 'labelClassName'),
+               Output('checklist-vertical1', 'labelClassName'),
+               Output('checklist-vertical2', 'labelClassName'),
+               Output('checklist-vertical3', 'labelClassName'),
+               Output('checklist-vertical4', 'labelClassName'),
+               Output('checklist-vertical5', 'labelClassName'),
+               Output('checklist-vertical6', 'labelClassName')],               
+              [Input('btnProyection','n_clicks')],
+              [State('select-airport', 'value')])
 
-def update_checklist(n_clicks,station):
-    if(n_clicks==0):
-        print('es mi primer no debo pintar prediccion desde button')
+def update_checklist(n_clicks, ddl_value):        
+    # dff_v = create_plot_data(df=df,station=ddl_value,variable='skyl1')
+    # data_pred_v = dff_v[dff_v.type=="Prediction"]    
+    # lim_v = get_treshold(station=ddl_value,variable='skyl1')
+    # limit_v = pd.DataFrame({'day_hour':dff_v['day_hour'],'limit':lim_v})
+    # plot_styles = []
+    # data_pred_v = dff_v[dff_v.type=="Prediction"]    
+    # for key,data in data_pred_v.items():
+    #     if key == 'skyl1':
+    #         print(data)
+    #         if data[0] > limit_v['limit']:
+    #             print('entre')
+    #             plot_styles.append('start-checklist')
+    #         else:
+    #             plot_styles.append('stop-checklist')
 
-    print(n_clicks)
-    print(station)
-    n_clicks = 0
-
-    return 'start-checklist','stop-checklist'
+    # dff_h = create_plot_data(df=df,station=ddl_value,variable='vsby')
+    # lim_h = get_treshold(station=ddl_value,variable='vsby')
+    # limit_h = pd.DataFrame({'day_hour':dff_h['day_hour'],'limit':lim_h})
+    # plot_styles = []
+    # data_pred_h = dff_h[dff_h.type=="Prediction"]
+    # for key,data in data_pred_h.items():
+    #     if data['vsby'] > limit_h['limit']:
+    #         plot_styles.append('start-checklist')
+    #     else:
+    #         plot_styles.append('stop-checklist')
+        
+    # return plot_styles[0],plot_styles[1], plot_styles[2], plot_styles[3] ,plot_styles[4] , plot_styles[5], plot_styles[6] ,plot_styles[7] ,plot_styles[8] ,plot_styles[9], plot_styles[10], plot_styles[11], plot_styles[12]
+    return 'start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist'

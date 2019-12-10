@@ -36,7 +36,7 @@ dashboard = html.Div(
                        
                             dbc.Col([
 
-                                html.H3("Map"),
+                                html.H6("Map"),
                                 html.Br(),
                                 dcc.Dropdown(id='select-airport',
                                 options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
@@ -46,7 +46,7 @@ dashboard = html.Div(
                             ],     
                             md=12),
                                 dbc.Col([
-                                html.H3("Horizontal visibility Chart"),
+                                html.H6("Horizontal visibility Chart"),
                                 dcc.Graph(id="horizontal-vis-plot"),
                                 html.Br(),
                             ],
@@ -58,66 +58,118 @@ dashboard = html.Div(
                  dbc.Col(
                     [
                             dbc.Col([
-                                html.H3("Visibility Chart"),
+                                html.H6("Visibility Chart"),
                                 html.Br(),
-                                html.Button('Descriptive analysis', id='btntest', className='button-dash'),
+                                html.Button('Descriptive Analisys', className='button-dash', id="btnDescriptive"),
                                 html.Br(),
                                 html.Br(),
                                 html.Button('Forecast', id='btnProyection', className='button-dash'),
-                                html.Br(),
-                                
-                                     html.H3("Vertical visibility"),
-                                dcc.Checklist(id='checklist-vertical',
+                                html.Br(),                                
+                                html.H6("Vertical visibility"),
+                                dcc.Checklist(id='checklist-vertical1',
                                         options=[
-                                            {'label': '✈', 'value': 'v1'},
-                                            {'label': '✈', 'value': 'v2'},
-                                            {'label': '✈', 'value': 'v3'},
-                                            {'label': '✈', 'value': 'v4'},
-                                            {'label': '✈', 'value': 'v5'},
+                                            {'label': '✈', 'value': 'v1'}                                            
+                                        ],
+                                        value=['v1'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-vertical2',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'v2'}                                            
+                                        ],
+                                        value=['v2'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-vertical3',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'v3'}
+                                        ],
+                                        value=['v3'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-vertical4',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'v4'}                                            
+                                        ],
+                                        value=['v4'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-vertical5',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'v5'}                                            
+                                        ],
+                                        value=['v5'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-vertical6',
+                                        options=[                                            
                                             {'label': '✈', 'value': 'v6'}
                                         ],
-                                        value=['v1', 'v2', 'v3', 'v4', 'v5', 'v6'],
+                                        value=['v6'],
                                         labelStyle={'display': 'inline-block',}
-                                ),      
+                                ),
                                 html.Br(), 
-                                html.H3("Horizontal Visibility"),
-                             dcc.Checklist(id='checklist-horizontal',
-                                    options=[
-                                        {'label': '✈', 'value': 'h1'},
-                                        {'label': '✈', 'value': 'h2'},
-                                        {'label': '✈', 'value': 'h3'},
-                                        {'label': '✈', 'value': 'h4'},
-                                        {'label': '✈', 'value': 'h5'},
-                                        {'label': '✈', 'value': 'h6'}
-                                    ],
-                                    value=['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-                                    labelStyle={'display': 'inline-block'}
-                                       
+                                html.H6("Horizontal Visibility"),
+                                dcc.Checklist(id='checklist-horizontal1',
+                                        options=[
+                                            {'label': '✈', 'value': 'h1'}                                            
+                                        ],
+                                        value=['h1'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-horizontal2',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'h2'}                                            
+                                        ],
+                                        value=['h2'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-horizontal3',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'h3'}
+                                        ],
+                                        value=['h3'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-horizontal4',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'h4'}                                            
+                                        ],
+                                        value=['h4'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-horizontal5',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'h5'}                                            
+                                        ],
+                                        value=['h5'],
+                                        labelStyle={'display': 'inline-block',}
+                                ),
+                                dcc.Checklist(id='checklist-horizontal6',
+                                        options=[                                            
+                                            {'label': '✈', 'value': 'h6'}
+                                        ],
+                                        value=['h6'],
+                                        labelStyle={'display': 'inline-block',}
                                 ),
                             html.Br(),
-                            html.Br(),         
- 
-                              
+                            html.Br(),
                             ],
-                            md=12), 
-                            
+                            md=12),                             
                             dbc.Col([
-                                html.H3("Vertical visibility Chart"),
+                                html.H6("Vertical visibility Chart"),
                                 dcc.Graph(id="vertical-vis-plot"),
                                 html.Br(),
                             ],
-                            md=12),                                         
-                        
-                       
-                            
+                            md=12),
                     ],       
                     md=6,
-                    style={"background-color": "#F4F4F4", "height": "100%", "padding": "0",  "top": "70px", "height": "100%" },
+                    style={"background-color": "#F4F4F4", "padding": "0",  "top": "70px", "height": "100%" },
                 ),        
             ]  
         ),
          dbc.Col([
-                                html.H3("Grid"),
+                                html.H6("Grid"),
                                 dt.DataTable(
                                     id='table',
                                     columns=vars_list_dt,
