@@ -36,7 +36,7 @@ dashboard = html.Div(
                        
                             dbc.Col([
 
-                                html.H6("Map"),
+                                html.H3("Map"),
                                 html.Br(),
                                 dcc.Dropdown(id='select-airport',
                                 options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
@@ -46,7 +46,7 @@ dashboard = html.Div(
                             ],     
                             md=12),
                                 dbc.Col([
-                                html.H6("Horizontal visibility Chart"),
+                                html.H3("Horizontal visibility Chart"),
                                 dcc.Graph(id="horizontal-vis-plot"),
                                 html.Br(),
                             ],
@@ -58,7 +58,7 @@ dashboard = html.Div(
                  dbc.Col(
                     [
                             dbc.Col([
-                                html.H6("Visibility Chart"),
+                                html.H3("Visibility Chart"),
                                 html.Br(),
                                 html.Button('Descriptive analysis', id='btntest', className='button-dash'),
                                 html.Br(),
@@ -66,7 +66,7 @@ dashboard = html.Div(
                                 html.Button('Forecast', id='btnProyection', className='button-dash'),
                                 html.Br(),
                                 
-                                     html.H6("Vertical visibility"),
+                                     html.H3("Vertical visibility"),
                                 dcc.Checklist(id='checklist-vertical',
                                         options=[
                                             {'label': '✈', 'value': 'v1'},
@@ -80,7 +80,7 @@ dashboard = html.Div(
                                         labelStyle={'display': 'inline-block',}
                                 ),      
                                 html.Br(), 
-                                html.H6("Horizontal Visibility"),
+                                html.H3("Horizontal Visibility"),
                              dcc.Checklist(id='checklist-horizontal',
                                     options=[
                                         {'label': '✈', 'value': 'h1'},
@@ -102,7 +102,7 @@ dashboard = html.Div(
                             md=12), 
                             
                             dbc.Col([
-                                html.H6("Vertical visibility Chart"),
+                                html.H3("Vertical visibility Chart"),
                                 dcc.Graph(id="vertical-vis-plot"),
                                 html.Br(),
                             ],
@@ -117,7 +117,7 @@ dashboard = html.Div(
             ]  
         ),
          dbc.Col([
-                                html.H6("Grid"),
+                                html.H3("Grid"),
                                 dt.DataTable(
                                     id='table',
                                     columns=vars_list_dt,
