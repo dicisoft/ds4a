@@ -164,10 +164,16 @@ def update_hvis_plot(station):
     lim = get_treshold(station=station,variable='vsby')
     limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
-    for key, data in dff.groupby('type'):
-        plot_data.append(
-            go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
-        )
+    
+    # for key, data in dff.groupby('type'):
+    #     plot_data.append(
+    #         go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
+    #     )
+    data = dff[dff.type=="Current"]
+    plot_data.append(
+        go.Scatter(x=data['day_hour'],y=data['vsby'],name='Current',mode='lines+markers')  
+    )  
+
     plot_data.append(
         go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
     )  
@@ -203,10 +209,16 @@ def update_vvis_plot(station):
     lim = get_treshold(station=station,variable='skyl1')
     limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
-    for key, data in dff.groupby('type'):
-        plot_data.append(
-            go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
-        )
+    # for key, data in dff.groupby('type'):
+    #     plot_data.append(
+    #         go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
+    #     )
+
+    data = dff[dff.type=="Current"]
+    plot_data.append(
+        go.Scatter(x=data['day_hour'],y=data['skyl1'],name='Current',mode='lines+markers')
+    )  
+
     plot_data.append(
         go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
     )  
