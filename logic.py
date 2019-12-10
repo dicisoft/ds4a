@@ -93,12 +93,12 @@ def get_model(station,variable):
     return rf
 
 
-def create_plot_data(df,station,variable):
+def create_plot_data(df,station,variable,lag=20):
     print('Preparing Data For {} {} Plotting'.format(station,variable),end="\n\n")
     df_air = df[df['station']==station].sort_values(by=['day_hour'],ascending=True).reset_index(drop=True).drop_duplicates(subset='day_hour')
     ## Seleccionar Ultimas 48 horas de info
     end_date = df_air['day_hour'].max()
-    start_date = end_date-datetime.timedelta(hours=20)
+    start_date = end_date-datetime.timedelta(hours=lag)
     date_range = pd.date_range(start=str(start_date),end=str(end_date),freq='H').to_list()
     df_air = df_air.loc[df_air['day_hour'].isin(date_range),['day_hour',variable]]
     df_air['type']='Current'
@@ -115,8 +115,15 @@ def create_plot_data(df,station,variable):
     df_to_pred['type']='Prediction'
     ## Link 
     df_link = df_to_pred.head(1)
-    df_link['type']='Current'
+    df_link['type']='Prediction'
     ## Concatenar Data Sets
     df_out = pd.concat([df_air,df_link,df_to_pred],ignore_index=True)
     
     return df_out
+
+def get_treshold(station, variable):
+    tresh = pd.read_csv('dash/treshold.csv')
+    ## Info is in meters convert horizontal to miles and vertical to feet
+    tresh['value'] = np.where(tresh['variable']=='vsby',tresh['value']/1609.344,tresh['value']*3.28084)
+    x = tresh.loc[(tresh['station']==station) & (tresh['variable']==variable),'value'].values[0]
+    return x

@@ -1,5 +1,6 @@
 import flask
 import pandas as pd
+import numpy as np
 from flask import Flask, render_template, request,redirect, url_for
 import dash_core_components as dcc
 import dash_html_components as html

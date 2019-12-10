@@ -1,6 +1,7 @@
 import sys
 import plotly.graph_objects as go
 import dash_core_components as dcc
+import numpy as np
 import pandas as pd
 from dash.dependencies import Input, Output, State
 
@@ -160,21 +161,35 @@ def update_table(airport,columns):
 
 def update_hvis_plot(station):
     dff = create_plot_data(df=df,station=station,variable='vsby')
+    lim = get_treshold(station=station,variable='vsby')
+    limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
     for key, data in dff.groupby('type'):
         plot_data.append(
             go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
         )
+    plot_data.append(
+        go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
+    )  
     layout = go.Layout(title="Horizontal Visibility Prediction",
-                       yaxis={"title":"Horizontal Visibility"},
+                       yaxis={"title":"Horizontal Visibility (Miles)"},
                        xaxis={"title":"Date"})   
     return {
         "data":plot_data,
         "layout": layout
-    }    
+    }
 
+def get_treshold(station, variable):
+    tresh = pd.read_csv('dash/treshold.csv')
+    ## Info is in meters convert horizontal to miles and vertical to feet
+    tresh['value'] = np.where(tresh['variable']=='vsby',tresh['value']/1609.344,tresh['value']*3.28084)
+    x = tresh.loc[(tresh['station']==station) & (tresh['variable']==variable),'value'].values[0]
+    return x
 
 ### Vertical Visibility
+#################
+### Vertical Visibility
+
 @app.callback(
     Output('vertical-vis-plot', 'figure'),
     [ 
@@ -182,15 +197,21 @@ def update_hvis_plot(station):
     ]
 )
 
+
 def update_vvis_plot(station):
     dff = create_plot_data(df=df,station=station,variable='skyl1')
+    lim = get_treshold(station=station,variable='skyl1')
+    limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
     for key, data in dff.groupby('type'):
         plot_data.append(
             go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
         )
+    plot_data.append(
+        go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
+    )  
     layout = go.Layout(title="Vertical Visibility Prediction",
-                       yaxis={"title":"Vertical Visibility"},
+                       yaxis={"title":"Vertical Visibility (Feet)"},
                        xaxis={"title":"Date"})   
     return {
         "data":plot_data,
