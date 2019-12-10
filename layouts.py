@@ -19,7 +19,7 @@ dashboard = html.Div(
             [
                 dbc.Col(
                     [
-                        html.Img(src='../static/images/plain-icon.png', className='inline-header'),
+                        html.Img(src='../static/images/plain-icon-invert.png', className='inline-header'),
                         html.Strong("  VEMCA:", className='inline-header'),
                         html.H1("Visibility Estimation Model in Colombian Airports  " , className='inline-header'),
                        
@@ -29,7 +29,7 @@ dashboard = html.Div(
                     ],
                     
                  
-                        style={"background-color": "#FFFFFF", "height": "70px", "position": "fixed" , "z-index": "99999" , "top": "0" },
+                        style={"background-color": "#6B69A6", "height": "70px", "position": "fixed" , "z-index": "99999" , "top": "0" },
                 ),
                 dbc.Col(
                     [
@@ -60,12 +60,13 @@ dashboard = html.Div(
                             dbc.Col([
                                 html.H6("Visibility Chart"),
                                 html.Br(),
-                                html.Button('Descriptive Analisys', className='button-dash', id="btnDescriptive"),
+                                html.Button('Descriptive Analisys', className='button-dash-invert', id="btnDescriptive"),
                                 html.Br(),
                                 html.Br(),
                                 html.Button('Forecast', id='btnProyection', className='button-dash'),
                                 html.Br(),                                
                                 html.H6("Vertical visibility"),
+                      dbc.Col([
                                 dcc.Checklist(id='checklist-vertical1',
                                         options=[
                                             {'label': '✈', 'value': 'v1'}                                            
@@ -106,10 +107,17 @@ dashboard = html.Div(
                                             {'label': '✈', 'value': 'v6'}
                                         ],
                                         value=['v6'],
-                                        labelStyle={'display': 'inline-block',}
-                                ),
+                                        labelStyle={'display': 'inline-block'}
+                                        
+                           ),
+                           ],
+               
+                            style={ "display": "flex" ,"justify-content" : "center", "padding" : "2%" },
+                            
+                            ),   
                                 html.Br(), 
                                 html.H6("Horizontal Visibility"),
+                                        dbc.Col([
                                 dcc.Checklist(id='checklist-horizontal1',
                                         options=[
                                             {'label': '✈', 'value': 'h1'}                                            
@@ -151,7 +159,13 @@ dashboard = html.Div(
                                         ],
                                         value=['h6'],
                                         labelStyle={'display': 'inline-block',}
+                                          ),
+                           ],
+               
+                            style={ "display": "flex" ,"justify-content" : "center" , "padding" : "2%" },
                                 ),
+                                
+                                
                             html.Br(),
                             html.Br(),
                             ],
@@ -164,7 +178,7 @@ dashboard = html.Div(
                             md=12),
                     ],       
                     md=6,
-                    style={"background-color": "#F4F4F4", "padding": "0",  "top": "70px", "height": "100%" },
+                    style={"background-color": "#F4F4F4", "padding": "0",  "top": "70px", "height": "100%",  "display": "inline-block" },
                 ),        
             ]  
         ),

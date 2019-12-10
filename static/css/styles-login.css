@@ -8,7 +8,7 @@ body {
 }
 
 strong {
-  color: #555555;
+  color: #FFFFFF;
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -17,7 +17,7 @@ strong {
 }
 
 h1 {
-  color: #777777;
+  color: #FFFFFF;
   font-size: 19px;
   font-weight: 200;
   letter-spacing: -1px;
@@ -42,10 +42,11 @@ h3 {
 }
 
 h6 {
-  color: #999999 !important;
-  font-size: 12px;
-  font-weight: 200;
-  margin: 2% 0;
+  color: #6B69A6 !important;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 4% 0 2%;
 }
 
 p {
@@ -84,6 +85,27 @@ section {
   width: 100%;
   margin: 5px 0;
   max-width: 260px;
+}
+
+.button-dash-invert {
+  background: #FFFFFF;
+  border: solid 2px var(--violet-color) ;
+  border-radius: 4px;
+  color: var(--violet-color) !important;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 220px;
+  font-size: 12px;
+  max-height: 42px;
+  line-height: 35px;
+  width: 100%;
+  margin: 5px 0;
+  max-width: 260px;
+}
+
+button-dash-invert:hover {
+  background: var(--blue-color)!important;
 }
 
 .button-dash:hover {
@@ -125,6 +147,15 @@ section {
   text-align: center;
   min-height: 610px !important;
 }
+.col-md-10 {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  align-items: center;
+  text-align: center;
+ 
+}
+
 
 .mt-4,
 .my-4 {
@@ -133,7 +164,7 @@ section {
 
 a:link,
 a:visited {
-  background-color: #6B69A6;
+ 
   width: 90%;
   margin: 3% 0;
   border: none;
@@ -180,7 +211,7 @@ form {
 }
 
 :root {
-  --blue-color: #7CC6D5;
+  --blue-color: #71BCC6;
   --blue-disable-color: #677272;
   --violet-color: #6B69A6;
   --violet-hover-color: #A1A1D1;
@@ -383,10 +414,11 @@ label {
   text-align: center;
   vertical-align: middle;
   font-size: 21px;
+  line-height: 45px;
 }
 
 .start-checklist {
-  background-color: #7CC6D5;
+  background-color: #71BCC6;
   color: white!important;
 }
 
@@ -394,6 +426,12 @@ label {
   background-color: #EF1155;
   color: white!important;
 }
+
+.limit-checklist {
+  background-color: #fd7e14;
+  color: white!important;
+}
+
 
 
 /* width */
@@ -432,3 +470,4 @@ label {
   width: 30px;
   padding: 0 !important;
 }
+
