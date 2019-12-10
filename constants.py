@@ -14,7 +14,17 @@ air_names = {#'SKAR':'Aeropuerto Internacional el EdÃ©n (Armenia - QuindÃ­o)
              'SKSP':'Aeropuerto Internacional Gustavo Rojas Pinilla (San Andrés - Colombia)',
              'SKRG':'Aeropuerto Internacional José Marí­a Córdova (Medellí­n - Antioquia)',
              'SKBQ':'Aeropuerto Internacional Ernesto Cortissoz (Barranquilla - Atlantico)'}
-
+airport_lat_lon = [
+ {'station_name':'SKBG','lat':7.1156792, 'lon':-73.1721692},
+ {'station_name':'SKBO','lat':4.6931832, 'lon':-74.1460662},
+ {'station_name':'SKCC','lat':7.9169411, 'lon':-72.5126214},
+ {'station_name':'SKCG','lat':10.446381, 'lon':-75.5174062},
+ {'station_name':'SKCL','lat':3.5411098, 'lon':-76.3867725}, 
+ {'station_name':'SKPE','lat':4.8151963, 'lon':-75.7384446},
+ {'station_name':'SKSM','lat':11.116147, 'lon':-74.2343331},
+ {'station_name':'SKSP','lat':12.5861164,'lon':-81.7043465}, 
+ {'station_name':'SKRG','lat':6.1707687, 'lon':-75.4298088},
+ {'station_name':'SKBQ','lat':10.886538, 'lon':-74.778667}]
 ################
 #### Lista de diccionarios de Nombre De Variables Para el Dropdown
 
