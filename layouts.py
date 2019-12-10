@@ -60,10 +60,10 @@ dashboard = html.Div(
                             dbc.Col([
                                 html.H6("Visibility Chart"),
                                 html.Br(),
-                                html.Button('Documentation', className='button-dash'),
+                                html.Button('Descriptive analysis', id='btntest', className='button-dash'),
                                 html.Br(),
                                 html.Br(),
-                                html.Button('Proyection', id='btnProyection', className='button-dash'),
+                                html.Button('Forecast', id='btnProyection', className='button-dash'),
                                 html.Br(),
                                 
                                      html.H6("Vertical visibility"),

@@ -155,28 +155,41 @@ def update_table(airport,columns):
 @app.callback(
     Output('horizontal-vis-plot', 'figure'),
     [ 
-    Input('select-airport', 'value')
+    Input('select-airport', 'value'),
+    Input('btnProyection','n_clicks')
     ]
 )
 
-def update_hvis_plot(station):
+def update_hvis_plot(station,n_clicks):
     dff = create_plot_data(df=df,station=station,variable='vsby')
     lim = get_treshold(station=station,variable='vsby')
     limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
     
-    # for key, data in dff.groupby('type'):
-    #     plot_data.append(
-    #         go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
-    #     )
-    data = dff[dff.type=="Current"]
-    plot_data.append(
-        go.Scatter(x=data['day_hour'],y=data['vsby'],name='Current',mode='lines+markers')  
-    )  
+    if(n_clicks==0):
+        
+        print('es mi primer no debo pintar prediccion desde dropdown soloo historico')
 
-    plot_data.append(
+        data = dff[dff.type=="Current"]
+        plot_data.append(
+        go.Scatter(x=data['day_hour'],y=data['vsby'],name='Current',mode='lines+markers')  
+        )  
+
+        plot_data.append(
         go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
-    )  
+        )
+    else:
+        print('solo pintar prediccion')
+        
+        for key, data in dff.groupby('type'):
+            plot_data.append(
+                go.Scatter(x=data['day_hour'],y=data['vsby'],name=key,mode='lines+markers')
+            )
+
+        plot_data.append(
+        go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
+        )
+      
     layout = go.Layout(title="Horizontal Visibility Prediction",
                        yaxis={"title":"Horizontal Visibility (Miles)"},
                        xaxis={"title":"Date"})   
@@ -197,34 +210,59 @@ def get_treshold(station, variable):
 ### Vertical Visibility
 
 @app.callback(
+    Output('btnProyection','n_clicks'),
+    [ 
+    Input('select-airport', 'value'),
+    ]
+)
+
+def resetButton(reset):
+    return 0
+
+
+
+@app.callback(
     Output('vertical-vis-plot', 'figure'),
     [ 
-    Input('select-airport', 'value')
+    Input('select-airport', 'value'),
+    Input('btnProyection','n_clicks')
     ]
 )
 
 
-def update_vvis_plot(station):
+def update_vvis_plot(station,n_clicks):
     dff = create_plot_data(df=df,station=station,variable='skyl1')
     lim = get_treshold(station=station,variable='skyl1')
     limit = pd.DataFrame({'day_hour':dff['day_hour'],'limit':lim})
     plot_data = []
-    # for key, data in dff.groupby('type'):
-    #     plot_data.append(
-    #         go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
-    #     )
 
-    data = dff[dff.type=="Current"]
-    plot_data.append(
-        go.Scatter(x=data['day_hour'],y=data['skyl1'],name='Current',mode='lines+markers')
-    )  
+    if(n_clicks==0):
+        
+        print('es mi primer no debo pintar prediccion desde dropdown soloo historico')
 
-    plot_data.append(
+        data = dff[dff.type=="Current"]
+        plot_data.append(
+            go.Scatter(x=data['day_hour'],y=data['skyl1'],name='Current',mode='lines+markers')
+        )
+        plot_data.append(
         go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
-    )  
+        )
+        
+    else:
+        print('solo pintar prediccion')
+        for key, data in dff.groupby('type'):
+            plot_data.append(
+                go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
+            )
+
+        plot_data.append(
+        go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
+        )
+
     layout = go.Layout(title="Vertical Visibility Prediction",
                        yaxis={"title":"Vertical Visibility (Feet)"},
                        xaxis={"title":"Date"})   
+
     return {
         "data":plot_data,
         "layout": layout
@@ -233,8 +271,15 @@ def update_vvis_plot(station):
 ###button callback
 @app.callback([Output('checklist-horizontal', 'labelClassName'),
                Output('checklist-vertical', 'labelClassName')],
-              [Input('btnProyection','n_clicks')])
+              [Input('btnProyection','n_clicks'),
+              Input('select-airport', 'value')])
 
-def update_checklist(n_clicks):
+def update_checklist(n_clicks,station):
+    if(n_clicks==0):
+        print('es mi primer no debo pintar prediccion desde button')
+
     print(n_clicks)
+    print(station)
+    n_clicks = 0
+
     return 'start-checklist','stop-checklist'
