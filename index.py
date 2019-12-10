@@ -18,7 +18,6 @@ def index():
 def result():
     #Authentication Logic
     if request.method == 'POST' and request.form['username'] == 'admin' and request.form['pass'] == '123456' :
-        print('llego del boton marica')
         print('POST con usuario {} con password {}'.format(request.form['username'],request.form['pass']))
         return redirect(url_for('/dash/'))
     else:

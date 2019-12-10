@@ -65,7 +65,7 @@ df = get_data()
     Output('map-div', 'children'),
     [Input('select-airport','value')])
 def update_map(airport_id):
-    print('cambio de mapa')    
+       
 
     fig = go.Figure(go.Scattermapbox(
             lat=['4.4528825',
@@ -168,7 +168,7 @@ def update_hvis_plot(station,n_clicks):
     
     if(n_clicks==0):
         
-        print('es mi primer no debo pintar prediccion desde dropdown soloo historico')
+        
 
         data = dff[dff.type=="Current"]
         plot_data.append(
@@ -179,7 +179,7 @@ def update_hvis_plot(station,n_clicks):
         go.Scatter(x=limit['day_hour'],y=limit['limit'],name='Limit',mode='markers')  
         )
     else:
-        print('solo pintar prediccion')
+        
         
         for key, data in dff.groupby('type'):
             plot_data.append(
@@ -238,7 +238,7 @@ def update_vvis_plot(station,n_clicks):
 
     if(n_clicks==0):
         
-        print('es mi primer no debo pintar prediccion desde dropdown soloo historico')
+        
 
         data = dff[dff.type=="Current"]
         plot_data.append(
@@ -249,7 +249,7 @@ def update_vvis_plot(station,n_clicks):
         )
         
     else:
-        print('solo pintar prediccion')
+        
         for key, data in dff.groupby('type'):
             plot_data.append(
                 go.Scatter(x=data['day_hour'],y=data['skyl1'],name=key,mode='lines+markers')
@@ -284,32 +284,57 @@ def update_vvis_plot(station,n_clicks):
               [Input('btnProyection','n_clicks')],
               [State('select-airport', 'value')])
 
-def update_checklist(n_clicks, ddl_value):        
-    # dff_v = create_plot_data(df=df,station=ddl_value,variable='skyl1')
-    # data_pred_v = dff_v[dff_v.type=="Prediction"]    
-    # lim_v = get_treshold(station=ddl_value,variable='skyl1')
-    # limit_v = pd.DataFrame({'day_hour':dff_v['day_hour'],'limit':lim_v})
-    # plot_styles = []
-    # data_pred_v = dff_v[dff_v.type=="Prediction"]    
-    # for key,data in data_pred_v.items():
-    #     if key == 'skyl1':
-    #         print(data)
-    #         if data[0] > limit_v['limit']:
-    #             print('entre')
-    #             plot_styles.append('start-checklist')
-    #         else:
-    #             plot_styles.append('stop-checklist')
+def update_checklist(n_clicks, station):
+    lresul = [] 
 
-    # dff_h = create_plot_data(df=df,station=ddl_value,variable='vsby')
-    # lim_h = get_treshold(station=ddl_value,variable='vsby')
-    # limit_h = pd.DataFrame({'day_hour':dff_h['day_hour'],'limit':lim_h})
-    # plot_styles = []
-    # data_pred_h = dff_h[dff_h.type=="Prediction"]
-    # for key,data in data_pred_h.items():
-    #     if data['vsby'] > limit_h['limit']:
-    #         plot_styles.append('start-checklist')
-    #     else:
-    #         plot_styles.append('stop-checklist')
+    if(n_clicks==0):
+        #hacer aqui que todos los botones este grises 
+        #a razon que esta cambiando de aeropuerto y debe porner reiniciar semaforos 
+        for x in range(12):
+            lresul.append('label')  
+
+        return lresul[0],lresul[1],lresul[2],lresul[3],lresul[4],lresul[5],lresul[6],lresul[7],lresul[8],lresul[9],lresul[10],lresul[11]
         
-    # return plot_styles[0],plot_styles[1], plot_styles[2], plot_styles[3] ,plot_styles[4] , plot_styles[5], plot_styles[6] ,plot_styles[7] ,plot_styles[8] ,plot_styles[9], plot_styles[10], plot_styles[11], plot_styles[12]
-    return 'start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist','start-checklist','stop-checklist'
+    else:
+        #obtener los horizontales y verticales para y personalizar semaforos.
+        dff = create_plot_data(df=df,station=station,variable='vsby')
+        lim = get_treshold(station=station,variable='vsby')
+        
+        data = dff[dff.type=='Prediction']
+        data.drop_duplicates(inplace=True) 
+
+        #primero las 6 prediciones horizontales 
+        for index,row in data.reset_index(drop=True).iterrows():
+            if(row['vsby'] < lim ):
+                print('Medida por debajo {} indice {}'.format(row['vsby'],index))
+                lresul.append('stop-checklist')  
+            else:
+                print('Medida Ok {} indice {}'.format(row['vsby'],index))
+                lresul.append('start-checklist')
+
+        #ahora las verticales
+        dff = create_plot_data(df=df,station=station,variable='skyl1')
+        lim = get_treshold(station=station,variable='skyl1')
+
+        data = dff[dff.type=='Prediction']
+        data.drop_duplicates(inplace=True) 
+        
+        #primero las 6 prediciones horizontales 
+        for index,row in data.reset_index(drop=True).iterrows():
+            if(row['skyl1'] < lim ):
+                print('Medida por debajo {} indice {}'.format(row['skyl1'],index))
+                lresul.append('stop-checklist')  
+            else:
+                print('Medida Ok {} indice {}'.format(row['skyl1'],index))
+                lresul.append('start-checklist')
+        
+        print(len(lresul))
+        if(len(lresul)<12):
+            print('medidas incompletas')
+            #poner un estilo amarillo a todos los que hagan falta 
+
+
+        return lresul[0],lresul[1],lresul[2],lresul[3],lresul[4],lresul[5],lresul[6],lresul[7],lresul[8],lresul[9],lresul[10],lresul[11]
+
+
+
