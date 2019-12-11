@@ -62,49 +62,49 @@ dashboard = html.Div(
                                 html.Br(),
                                 html.Button('Exploratory Data Analysis', className='button-dash-invert', id="btnDescriptive"),
                                 html.Br(),
-                                html.Br(),
                                 html.Button('Forecast', id='btnProyection', className='button-dash'),
                                 html.Br(),                                
-                                html.H6("Vertical visibility (feet)"),
+                                html.H6("Vertical visibility (feet), (Prediction for the next 6 hours)"),
+                                
                       dbc.Col([
                                 dcc.Checklist(id='checklist-vertical1',
                                         options=[
-                                            {'label': '✈1', 'value': 'v1'}                                            
+                                            {'label': '+1 Hour ', 'value': 'v1'}                                            
                                         ],
                                         value=['v1'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical2',
                                         options=[                                            
-                                            {'label': '✈2', 'value': 'v2'}                                            
+                                            {'label': '+2 Hour', 'value': 'v2'}                                            
                                         ],
                                         value=['v2'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical3',
                                         options=[                                            
-                                            {'label': '✈3', 'value': 'v3'}
+                                            {'label': '+3 Hour', 'value': 'v3'}
                                         ],
                                         value=['v3'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical4',
                                         options=[                                            
-                                            {'label': '✈4', 'value': 'v4'}                                            
+                                            {'label': '+4 Hour ', 'value': 'v4'}                                            
                                         ],
                                         value=['v4'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical5',
                                         options=[                                            
-                                            {'label': '✈5', 'value': 'v5'}                                            
+                                            {'label': '+5 Hour', 'value': 'v5'}                                            
                                         ],
                                         value=['v5'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical6',
                                         options=[                                            
-                                            {'label': '✈6', 'value': 'v6'}
+                                            {'label': '+6 Hour', 'value': 'v6'}
                                         ],
                                         value=['v6'],
                                         labelStyle={'display': 'inline-block'}
@@ -116,46 +116,47 @@ dashboard = html.Div(
                             
                             ),   
                                 html.Br(), 
-                                html.H6("Horizontal visibility (miles)"),
+                                html.H6("Horizontal visibility (miles), (Prediction for the next 6 hours)"),
+                                
                                         dbc.Col([
                                 dcc.Checklist(id='checklist-horizontal1',
                                         options=[
-                                            {'label': '✈1', 'value': 'h1'}                                            
+                                            {'label': '+1 Hour', 'value': 'h1'}                                            
                                         ],
                                         value=['h1'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal2',
                                         options=[                                            
-                                            {'label': '✈2', 'value': 'h2'}                                            
+                                            {'label': '+2 Hour', 'value': 'h2'}                                            
                                         ],
                                         value=['h2'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal3',
                                         options=[                                            
-                                            {'label': '✈3', 'value': 'h3'}
+                                            {'label': '+3 Hour', 'value': 'h3'}
                                         ],
                                         value=['h3'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal4',
                                         options=[                                            
-                                            {'label': '✈4', 'value': 'h4'}                                            
+                                            {'label': '+4 Hour', 'value': 'h4'}                                            
                                         ],
                                         value=['h4'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal5',
                                         options=[                                            
-                                            {'label': '✈5', 'value': 'h5'}                                            
+                                            {'label': '+5 Hour', 'value': 'h5'}                                            
                                         ],
                                         value=['h5'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal6',
                                         options=[                                            
-                                            {'label': '✈6', 'value': 'h6'}
+                                            {'label': '+6 Hour', 'value': 'h6'}
                                         ],
                                         value=['h6'],
                                         labelStyle={'display': 'inline-block',}
