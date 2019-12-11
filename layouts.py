@@ -36,7 +36,7 @@ dashboard = html.Div(
                        
                             dbc.Col([
 
-                                html.H6("Map"),
+                                html.H6("Airport"),
                                 html.Br(),
                                 dcc.Dropdown(id='select-airport',
                                 options=[{'label':label,'value':val} for label, val in zip(df['station_name'].unique(),df['station'].unique())],
@@ -58,14 +58,14 @@ dashboard = html.Div(
                  dbc.Col(
                     [
                             dbc.Col([
-                                html.H6("Visibility Chart"),
+                                html.H6("Options and Insights"),
                                 html.Br(),
-                                html.Button('Descriptive Analisys', className='button-dash-invert', id="btnDescriptive"),
+                                html.Button('Exploratory Data Analysis', className='button-dash-invert', id="btnDescriptive"),
                                 html.Br(),
                                 html.Br(),
                                 html.Button('Forecast', id='btnProyection', className='button-dash'),
                                 html.Br(),                                
-                                html.H6("Vertical visibility"),
+                                html.H6("Vertical visibility (feet)"),
                       dbc.Col([
                                 dcc.Checklist(id='checklist-vertical1',
                                         options=[
@@ -116,7 +116,7 @@ dashboard = html.Div(
                             
                             ),   
                                 html.Br(), 
-                                html.H6("Horizontal Visibility"),
+                                html.H6("Horizontal visibility (miles)"),
                                         dbc.Col([
                                 dcc.Checklist(id='checklist-horizontal1',
                                         options=[
@@ -183,7 +183,7 @@ dashboard = html.Div(
             ]  
         ),
          dbc.Col([
-                                html.H6("Grid"),
+                                html.H6("Table"),
                                 dt.DataTable(
                                     id='table',
                                     columns=vars_list_dt,

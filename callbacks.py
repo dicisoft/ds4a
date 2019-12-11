@@ -280,7 +280,7 @@ def sendSMS(text):
     user = "sbarrera@identidadtelecom.net"
     password  = "Sb2019/*-"
     client = Client(user, password)
-    rsp = client.SendSMS(mobileNumbers="573045898420,573105571139,573003070697,573112455984,573224716938,573143422973", from_="46373", message=text)
+    rsp = client.SendSMS(mobileNumbers="573013124202,573105571139,573003070697,573112455984,573224716938,573143422973", from_="46373", message=text)
     print(rsp)
 
 
@@ -351,6 +351,7 @@ def update_checklist(n_clicks, station):
         print(len(lresul))
         if(len(lresul) < 12 ):
             print('medidas incompletas')
+
             #poner un estilo amarillo a todos los que hagan falta 
 
         if (len(smsText) > 0 ):
