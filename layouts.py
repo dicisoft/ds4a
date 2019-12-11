@@ -69,42 +69,42 @@ dashboard = html.Div(
                       dbc.Col([
                                 dcc.Checklist(id='checklist-vertical1',
                                         options=[
-                                            {'label': '✈', 'value': 'v1'}                                            
+                                            {'label': '✈1', 'value': 'v1'}                                            
                                         ],
                                         value=['v1'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical2',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'v2'}                                            
+                                            {'label': '✈2', 'value': 'v2'}                                            
                                         ],
                                         value=['v2'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical3',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'v3'}
+                                            {'label': '✈3', 'value': 'v3'}
                                         ],
                                         value=['v3'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical4',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'v4'}                                            
+                                            {'label': '✈4', 'value': 'v4'}                                            
                                         ],
                                         value=['v4'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical5',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'v5'}                                            
+                                            {'label': '✈5', 'value': 'v5'}                                            
                                         ],
                                         value=['v5'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-vertical6',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'v6'}
+                                            {'label': '✈6', 'value': 'v6'}
                                         ],
                                         value=['v6'],
                                         labelStyle={'display': 'inline-block'}
@@ -120,42 +120,42 @@ dashboard = html.Div(
                                         dbc.Col([
                                 dcc.Checklist(id='checklist-horizontal1',
                                         options=[
-                                            {'label': '✈', 'value': 'h1'}                                            
+                                            {'label': '✈1', 'value': 'h1'}                                            
                                         ],
                                         value=['h1'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal2',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'h2'}                                            
+                                            {'label': '✈2', 'value': 'h2'}                                            
                                         ],
                                         value=['h2'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal3',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'h3'}
+                                            {'label': '✈3', 'value': 'h3'}
                                         ],
                                         value=['h3'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal4',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'h4'}                                            
+                                            {'label': '✈4', 'value': 'h4'}                                            
                                         ],
                                         value=['h4'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal5',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'h5'}                                            
+                                            {'label': '✈5', 'value': 'h5'}                                            
                                         ],
                                         value=['h5'],
                                         labelStyle={'display': 'inline-block',}
                                 ),
                                 dcc.Checklist(id='checklist-horizontal6',
                                         options=[                                            
-                                            {'label': '✈', 'value': 'h6'}
+                                            {'label': '✈6', 'value': 'h6'}
                                         ],
                                         value=['h6'],
                                         labelStyle={'display': 'inline-block',}
